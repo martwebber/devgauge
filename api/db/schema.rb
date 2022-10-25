@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_25_075045) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_24_184756) do
+  create_table "assessments", force: :cascade do |t|
+    t.boolean "status"
+    t.integer "user_id"
+    t.integer "duration"
+    t.boolean "is_actual"
+    t.datetime "assessment_date"
+    t.datetime "start_time"
+    t.string "assessment_type"
+    
   create_table "answers", force: :cascade do |t|
     t.string "answer_content"
     t.integer "question_id", null: false
