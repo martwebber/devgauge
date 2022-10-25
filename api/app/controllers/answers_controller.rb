@@ -27,10 +27,10 @@ class AnswersController < ApplicationController
 
     private
     def params_answer
-        params.permit(:question_id, :answer1, :answer2, :answer3, :answer4)
+        params.permit( :answer_content, :question_id,)
     end
 
     def update_answer
-        params.permit(:answer1, :answer2, :answer3, :answer4)
+        params.permit(:answer_content)
     end
 end

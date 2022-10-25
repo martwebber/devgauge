@@ -21,16 +21,23 @@ class QuestionsController < ApplicationController
     #update a question
     def update
         question = Question.find(params[:id])
-        quetion.update(update_quiz)
+        question.update(update_quiz)
         render json: question
+    end
+
+    def destroy
+        question = Question.find(params[:id])
+        question.destroy
+        head :no_content
     end
 
     private
     def update_quiz
-        params.permit(:quiz)
+        params.permit(:quiz, :correct_answer)
     end
 
     def params_quiz
-        params.permit(:question, :answer_id)
+        params.permit(:quiz, :correct_answer)
     end
+
 end
