@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
 Topic.create(topic_content: "SQL")
 Topic.create(topic_content: "Regex")
 Topic.create(topic_content: "C++")
@@ -14,3 +13,14 @@ Topic.create(topic_content: "Python")
 Topic.create(topic_content: "PHP")
 Topic.create(topic_content: "JavaScript")
 
+#Assessment.create = (status: 0, user_id: '1', duration:"20", is_actual:"true", assessment_date: "2022-3-2", start_time: "2022-3-2", assessment_type: "Python")
+#Assessment.create = (status: 1, user_id: '2', duration:"10", is_actual:"false", assessment_date: "2022-4-2", start_time: "2023-9-4", assessment_type: "Ruby on rails")
+#Assessment.create = (status: 0, user_id: '3', duration:"50", is_actual:"true", assessment_date: "2022-3-2", start_time: "2022-6-9", assessment_type: "Bootstrap")
+
+# # answer1 = Answer.create(answer_content: "Hello", question_id: quiz1.id)
+# answer2 = Answer.create(answer_content: "Hello one", question_id: quiz2.id)
+# answer3 = Answer.create(answer_content: "Hello two", question_id: quiz3.id)
+
+# # quiz1 = Question.create(quiz: "What is your name?", answer_id: answer1.id)
+# quiz2 = Question.create(quiz: "What is your fav food?", answer_id: answer2.id)
+# quiz3 = Question.create(quiz: "What is your fav name?", answer_id: answer3.id)
