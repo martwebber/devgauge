@@ -1,6 +1,6 @@
-class CreateAssesments < ActiveRecord::Migration[7.0]
+class CreateAssessments < ActiveRecord::Migration[7.0]
   def change
-    create_table :assesments do |t|
+    create_table :assessments do |t|
      
       t.boolean :status
       t.integer :user_id

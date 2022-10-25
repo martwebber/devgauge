@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_10_24_184756) do
-  create_table "assesments", force: :cascade do |t|
+  create_table "assessments", force: :cascade do |t|
     t.boolean "status"
     t.integer "user_id"
     t.integer "duration"
