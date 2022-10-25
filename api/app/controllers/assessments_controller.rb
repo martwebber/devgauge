@@ -45,7 +45,7 @@ class AssessmentsController < ApplicationController
     #private methods
     private
     def params_assignment
-        params.permit(:assessment)
+        params.permit( :status, :user_id, :duration, :is_actual, :assessment_date, :start_time, :assessment_type)
     end
 
      # Find an assessment 
@@ -57,5 +57,10 @@ class AssessmentsController < ApplicationController
     def assessment_not_found
         render json:  {errors: ["Assessment not found"]}, status: :not_found 
     end 
+
+     # Authorize users 
+     def authorize 
+        render json: {errors:["Not authorized"]}, status: :unauthorized unless session.include? :user_id
+    end
 
 end
