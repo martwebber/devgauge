@@ -4,6 +4,8 @@ class CreateStudentAnswers < ActiveRecord::Migration[7.0]
       t.references :question , foreign_key: true, null: false
       t.references :user , foreign_key: true, null: false
       t.references :answer , foreign_key: true, null: false
+      t.references :assessment , foreign_key: true, null: false
+      t.string :scores
 
       t.timestamps
     end
