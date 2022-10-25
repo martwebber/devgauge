@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_24_184756) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_24_101132) do
+  create_table "topics", force: :cascade do |t|
+    t.string "topic_content"
+  end
   create_table "assessments", force: :cascade do |t|
     t.boolean "status"
     t.integer "user_id"
@@ -19,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_184756) do
     t.datetime "assessment_date"
     t.datetime "start_time"
     t.string "assessment_type"
+  end
     
   create_table "answers", force: :cascade do |t|
     t.string "answer_content"
@@ -59,16 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_184756) do
     t.index ["question_id"], name: "index_student_answers_on_question_id"
     t.index ["user_id"], name: "index_student_answers_on_user_id"
   end
-
-  add_foreign_key "answers", "questions"
-  add_foreign_key "assessment_questions", "assessments"
-  add_foreign_key "assessment_questions", "questions"
-  add_foreign_key "questions", "assessments"
-  add_foreign_key "student_answers", "answers"
-  add_foreign_key "student_answers", "assessments"
-  add_foreign_key "student_answers", "questions"
-  add_foreign_key "student_answers", "users"
-
+  
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -79,5 +74,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_184756) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "answers", "questions"
+  add_foreign_key "assessment_questions", "assessments"
+  add_foreign_key "assessment_questions", "questions"
+  add_foreign_key "questions", "assessments"
+  add_foreign_key "student_answers", "answers"
+  add_foreign_key "student_answers", "assessments"
+  add_foreign_key "student_answers", "questions"
+  add_foreign_key "student_answers", "users"
 
 end
