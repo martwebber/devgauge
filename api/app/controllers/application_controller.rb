@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
-    # JWT_SECRET = Rails.application.secrets.secret_key_base
-        JWT_SECRET='duh'
+    JWT_SECRET = Rails.application.secrets.secret_key_base
+    #JWT_SECRET='duh'
     def app_response(status_code: 200, message: "Success", body: nil, serializer: nil)
         if serializer
             render json: { 
