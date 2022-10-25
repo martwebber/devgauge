@@ -10,20 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_24_101132) do
-  create_table "topics", force: :cascade do |t|
-    t.string "topic_content"
-  end
-  create_table "assessments", force: :cascade do |t|
-    t.boolean "status"
-    t.integer "user_id"
-    t.integer "duration"
-    t.boolean "is_actual"
-    t.datetime "assessment_date"
-    t.datetime "start_time"
-    t.string "assessment_type"
-  end
-    
+ActiveRecord::Schema[7.0].define(version: 2022_10_25_075045) do
   create_table "answers", force: :cascade do |t|
     t.string "answer_content"
     t.integer "question_id", null: false
@@ -39,6 +26,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_101132) do
     t.datetime "updated_at", null: false
     t.index ["assessment_id"], name: "index_assessment_questions_on_assessment_id"
     t.index ["question_id"], name: "index_assessment_questions_on_question_id"
+  end
+
+  create_table "assessments", force: :cascade do |t|
+    t.boolean "status"
+    t.integer "user_id"
+    t.integer "duration"
+    t.boolean "is_actual"
+    t.datetime "assessment_date"
+    t.datetime "start_time"
+    t.string "assessment_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|
@@ -63,7 +62,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_101132) do
     t.index ["question_id"], name: "index_student_answers_on_question_id"
     t.index ["user_id"], name: "index_student_answers_on_user_id"
   end
-  
+
+  create_table "topics", force: :cascade do |t|
+    t.string "topic_content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -83,5 +88,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_101132) do
   add_foreign_key "student_answers", "assessments"
   add_foreign_key "student_answers", "questions"
   add_foreign_key "student_answers", "users"
-
 end
