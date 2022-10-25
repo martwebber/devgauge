@@ -5,6 +5,12 @@ class TopicsController < ApplicationController
         render json: Topic.all
       end
 
+     #GET
+     def show
+      topic = Topic.find(params[:id])
+      render json: topic
+     end
+
     #POST
       def create
         topic = Topic.create(topic_params)
@@ -30,5 +36,8 @@ class TopicsController < ApplicationController
     def topic_params
         params.permit(:topic_content)
     end
-end
+
+    def find_topic
+      Topic.find(params[:id])
+  end 
 end

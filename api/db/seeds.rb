@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Topic.create(topic_content: "SQL")
+Topic.create(topic_content: "Regex")
+Topic.create(topic_content: "C++")
+Topic.create(topic_content: "C")
+Topic.create(topic_content: "Python")
+Topic.create(topic_content: "PHP")
+Topic.create(topic_content: "JavaScript")
+
