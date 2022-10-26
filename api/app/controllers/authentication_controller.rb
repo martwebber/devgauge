@@ -1,19 +1,17 @@
 class AuthenticationController < ApplicationController
+    skip_before_action :authorized, only: [:login]
 
     def login
+
         user = User.find_by(email: params[:email])
+        #User#authenticate comes from BCrypt
         if user&.authenticate(params[:password])
-            data = {
-              user_id: user.id,
-              user_type: user.user_type
-            }
-            token = encode_data(data)
-            app_response(status_code: 200, message: "Login successful", body: {
-                  user: ActiveModelSerializers::SerializableResource.new(user, serializer: UserSerializer),
-                  token: token
-                })
+          # encode token comes from ApplicationController
+          token = encode_token({ user_id: user.id})
+          render json: { user: UserSerializer.new(user), jwt: token }, status: :accepted
         else
-            app_response(status_code: 401, message: "Invalid username or password")
+          render json: { message: 'Invalid username or password' }, status: :unauthorized
         end
+      
     end
 end

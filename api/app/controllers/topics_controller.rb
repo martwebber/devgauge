@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+
     
     #GET
       def index
@@ -30,5 +31,5 @@ class TopicsController < ApplicationController
     def topic_params
         params.permit(:topic_content)
     end
-end
+
 end
