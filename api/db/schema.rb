@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_27_155237) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_25_075045) do
   create_table "answers", force: :cascade do |t|
     t.string "answer_content"
     t.integer "question_id", null: false
@@ -29,12 +29,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_155237) do
   end
 
   create_table "assessments", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.integer "user_id", null: false
+    t.boolean "status"
+    t.integer "user_id"
+    t.integer "duration"
+    t.boolean "is_actual"
+    t.datetime "assessment_date"
+    t.datetime "start_time"
+    t.string "assessment_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_assessments_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -80,7 +83,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_27_155237) do
   add_foreign_key "answers", "questions"
   add_foreign_key "assessment_questions", "assessments"
   add_foreign_key "assessment_questions", "questions"
-  add_foreign_key "assessments", "users"
   add_foreign_key "questions", "topics"
   add_foreign_key "student_answers", "answers"
   add_foreign_key "student_answers", "assessments"
