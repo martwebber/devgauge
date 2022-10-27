@@ -16,6 +16,22 @@
 
 /* question form */
 .question {
-  background-color: rgb(201, 225, 245);
+  background-color: rgb(194, 227, 238);
   padding: 30px;
 }
+
+/* TM DashBoard */
+.tmTitle{
+background-color: rgb(2, 2, 56);
+color: orange;
+
+}
+
+.tmBody{
+    background-color: lightblue;
+}
+
+button {
+    padding: 0px 30px;
+    color: #fff;
+  }

@@ -1,4 +1,5 @@
 import React from 'react'
+import TMDashBoard from '../dashboard/TMDashBoard'
 import CreateNewQuestionForm from '../questions/CreateNewQuestionForm'
 import CreateAssessmentForm from './CreateAssessmentForm'
 
@@ -11,6 +12,9 @@ export const Assessments = () => {
       </div><br/><br/>
       <div>
       <CreateAssessmentForm />
+      </div>
+      <div>
+      <TMDashBoard />
       </div>
       
       
