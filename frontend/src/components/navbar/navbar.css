@@ -1,7 +1,41 @@
+.container{
+    background-color: #fff;
+}
 .navbar{
-    background-color: #0C1227;
+    background-color: #111827;
+    color: #ffff;
+    font-size: 15px;
 }
 .nav-link {
-    color:#fff
+    
+}
+.container .d-flex{
+    width: 200px;
+    color: #F15524;
+    border-color: #F15524;
+}
+
+.container .search-btn {
+    color: #fff;
+    border-color: #F15524;
+    font-size: smaller;
+}
+
+.container .main{
+    font-size: 40px;
+    color: #F15524;
+}
+
+.container .me-automy-2my-lg-0{
+    color: #ffff;
+
+
+}
+
+.container .login-btn{
+    background-color: #FF9F1B;
+    margin-right: 15px;
+    color: #ffff;
+
 }
 
