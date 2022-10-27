@@ -21,3 +21,6 @@
 Assessment.create(user_id: 1, title: "Python", description: "Introduction to Python")
 Assessment.create(user_id: 1, title: "Ruby on rails", description: "Ruby on rails")
 Assessment.create( user_id: 1 , title: "Bootstrap", description: "Introduction to Bootstrap")
+Assessment.create(user_id: 1, title: "Python", description: "Introduction to Python")
+Assessment.create(user_id: 1, title: "Ruby on rails", description: "Ruby on rails")
+Assessment.create( user_id: 1 , title: "Bootstrap", description: "Introduction to Bootstrap")
