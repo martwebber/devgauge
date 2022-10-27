@@ -1,0 +1,13 @@
+.sign-up-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+   background-size: cover;
+    background-position: center;
+}
+
+#signup-button{
+    background-color: #FF9F1B;
+    border:#FF9F1B;
+}
