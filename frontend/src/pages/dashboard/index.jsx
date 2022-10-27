@@ -21,7 +21,7 @@ export const Dashboard = () => {
         <Button className='button-side' href="#">LeaderBoard</Button>
         <Button className='button-side' href="#">Grades</Button>
 
-        <Button className='button-side' href="#../login/login.jsx">Log Out</Button>
+        <Button className='button-logout' href="#../login/login.jsx">Log Out</Button>
      
         </div>
     </div>
