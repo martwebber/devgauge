@@ -16,3 +16,8 @@
 # # quiz1 = Question.create(quiz: "What is your name?", answer_id: answer1.id)
 # quiz2 = Question.create(quiz: "What is your fav food?", answer_id: answer2.id)
 # quiz3 = Question.create(quiz: "What is your fav name?", answer_id: answer3.id)
+
+
+Assessment.create(user_id: 1, title: "Python", description: "Introduction to Python")
+Assessment.create(user_id: 1, title: "Ruby on rails", description: "Ruby on rails")
+Assessment.create( user_id: 1 , title: "Bootstrap", description: "Introduction to Bootstrap")
