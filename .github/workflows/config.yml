@@ -1,25 +1,58 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+# name: CI
 
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
-  push:
-    branches: [ master,dev ]
-  pull_request:
-    branches: [ master,dev ]
+# # Controls when the workflow will run
+# on:
+#   # Triggers the workflow on push or pull request events but only for the "master" branch
+#   push:
+#     branches: [ master,dev ]
+#   pull_request:
+#     branches: [ master,dev ]
+
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       - name: Run Super-Linter
+#         uses: github/super-linter@v4
+#         env:
+#           DEFAULT_BRANCH: master
+#           GITHUB_TOKEN: ${{ secrets.DEVGAUGE_CI_TOKEN }}
+
+
+
+
+# Put this in the file: .github/workflows/verify.yml
+
+name: Verify
+on: [push]
 
 jobs:
-  super-lint:
-    name: Lint code base
+  linters:
+    name: Linters
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Run Super-Linter
-        uses: github/super-linter@v3
-        env:
-          DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ secrets.DEVGAUGE_CI_TOKEN }}
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true 
+
+      - name: Run linters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        run: |
+          bin/rubocop --parallel
+          bin/stylelint
+          bin/prettier
+          bin/eslint
+
+      - name: Run security checks
+        run: |
+          bin/bundler-audit --update
+          bin/brakeman -q -w2
