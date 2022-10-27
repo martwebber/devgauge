@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
         if jwt_data  && (user1 != "student")
             question = Question.create(params_quiz)
             render json: question
-            debugger
+            # debugger
         else
             render json: {errors: ["Only TM and admin can create a Question"]}
         end
