@@ -1,8 +1,22 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "../questions/Question.css";
 import TMCard from "./TMCard"
 
 function TMDashBoard() {
+
+
+const[assessment, setAssessment] = useState([])
+
+useEffect(() => {
+    fetch("/assessments")
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data)
+        setAssessment(data)
+    })
+}, [])
+
+
   return (
     <div>
       <h1>TMDashBoard</h1>
@@ -15,7 +29,21 @@ function TMDashBoard() {
             We are the market-leading technical interview platform to identify
             and hire developers
           </p>
-          <TMCard/>
+          <div className="tmCard">
+          {assessment.map((item) => {
+            console.log(item)
+            return(
+                <TMCard
+                title= {item.title}
+                description= {item.description}
+                key= {item.key}
+                id= {item.id}
+                />
+            )
+            
+          })}
+          </div>
+            
         </div>
       </div>
     </div>

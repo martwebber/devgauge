@@ -35,3 +35,11 @@ button {
     padding: 0px 30px;
     color: #fff;
   }
+
+.tmCard{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 80%;
+    margin:10px auto;
+}
