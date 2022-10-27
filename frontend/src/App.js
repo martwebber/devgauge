@@ -1,10 +1,24 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { NavBar } from './components/navbar/NavBar';
+import { Assessments } from './pages/assessments';
+import { Login } from './pages/login/LoginForm';
+import { SignUp } from './pages/signup/signupform';
 
 function App() {
 
   return (
     <div className="App">
-      <h1>devGauge</h1>
+      <NavBar/>
+      <Routes>
+      <Route path="/" ></Route>
+      <Route path="about" ></Route>
+      <Route path="assessments" element={<Assessments/>}></Route>
+      <Route path="blog" ></Route>
+      <Route path="contacts" ></Route>
+      <Route path="signup" element={<SignUp/>}></Route>
+      <Route path="login" element={<Login/>}></Route>
+      </Routes>
     </div>
   );
 }
