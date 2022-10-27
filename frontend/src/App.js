@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { NavBar } from './components/navbar/NavBar';
@@ -7,6 +8,7 @@ import { Login } from './pages/login/LoginForm';
 import { SignUp } from './pages/signup/signupform';
 
 function App() {
+
 
   return (
     <div className="App">
