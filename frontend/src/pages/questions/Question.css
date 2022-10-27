@@ -1,0 +1,21 @@
+/* assessment form */
+.main {
+  background-color: rgb(2, 2, 56);
+  padding: 30px;
+}
+
+.inputField {
+  width: 10%;
+  height: 40px;
+  border-radius: 20px;
+  /* box-shadow: inset 0px 0px 25px 0px white; */
+  background-color: blue;
+  color: white;
+}
+
+
+/* question form */
+.question {
+  background-color: rgb(201, 225, 245);
+  padding: 30px;
+}
