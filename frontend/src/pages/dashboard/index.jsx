@@ -17,11 +17,11 @@ export const Dashboard = () => {
         <div className='side-menu'>
         <Button className='button-side' href="#">Profile</Button> 
         <Button className='button-side' href="#">Notifications</Button>
-        <Button className='button-side' href="../assessments/CreateAssessmentForm.jsx">Assessments</Button>
+        <Button className='button-side' href="../assessments">Assessments</Button>
         <Button className='button-side' href="#">LeaderBoard</Button>
         <Button className='button-side' href="#">Grades</Button>
 
-        <Button className='button-side' href="#../login/login.jsx">Log Out</Button>
+        <Button className='button-side' href="#../login">Log Out</Button>
      
         </div>
     </div>

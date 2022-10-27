@@ -1,16 +1,17 @@
 .container{
-    background-color: #fff;
+    background-color: #111827;
 }
 .navbar{
     background-color: #111827;
     color: #ffff;
     font-size: 15px;
 }
-.nav-link {
-    
+.container .nav-link {
+    font-size:smaller;
+    color: #ffff;
+    background-color: #111827;
 }
 .container .d-flex{
-    width: 200px;
     color: #F15524;
     border-color: #F15524;
 }
@@ -22,8 +23,9 @@
 }
 
 .container .main{
-    font-size: 40px;
+    font-size: 30px;
     color: #F15524;
+    background-color: #111827;
 }
 
 .container .me-automy-2my-lg-0{
