@@ -8,6 +8,9 @@ import { CreateAssessment } from './pages/dashboard/createassessment';
 import { CreateQuestion } from './pages/dashboard/createquestion';
 import { Login } from './pages/login/LoginForm';
 import { SignUp } from './pages/signup/signupform';
+import { HomePage } from './pages/home/home';
+
+
 
 function App() {
 const [user, setUser] = useState(null)
@@ -20,7 +23,7 @@ const [user, setUser] = useState(null)
       <Route path="about" ></Route>
       <Route path="assessments" element={<Assessments user={user}/>}></Route>
       <Route path="question" ></Route>
-      <Route path="tm" ></Route>
+      {/* <Route path="tm" ></Route> */}
       <Route path="assessment" ></Route>
       <Route path="create-assessment" element={<CreateAssessment/>}></Route>
       <Route path="create-question" element={<CreateQuestion/>}></Route>
@@ -29,6 +32,8 @@ const [user, setUser] = useState(null)
       <Route path="signup" element={<SignUp/>}></Route>
       <Route path="login" element={<Login setUser={setUser}/>}></Route>
       <Route path="dashboard" element={<Dashboard/>}></Route>
+      <Route path="home" element={<HomePage/>}></Route>
+
       </Routes>
     </div>
   );
