@@ -46,7 +46,7 @@ class AssessmentsController < ApplicationController
        #private methods
        private
        def params_assignment
-           params.permit( :title, :description, :user_id)
+           params.permit( :title, :description,  :duration, :assessment_type, :user_id,)
        end
    
         # Find an assessment 

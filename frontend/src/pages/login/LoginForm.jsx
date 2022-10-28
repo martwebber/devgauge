@@ -26,7 +26,7 @@ export const Login = ({setUser}) => {
    .then(response=>response.json())
    .then(res=>{
      console.log(res)
-     setUser(res);
+     setUser(res.user);
      localStorage.setItem("token",res.jwt)
      navigate('/assessments')
    })
