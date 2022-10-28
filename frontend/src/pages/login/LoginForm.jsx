@@ -1,23 +1,60 @@
 import React from 'react'
-import { Form, Button } from 'react-bootstrap';
-
-export const Login = () => {
-    return (
-        <div className="login-form">
-            <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-        </div>
-        
-      );
+import { useState } from 'react';
+import { Form, Button, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
+import './login.css'
+ 
+export const Login = ({setUser}) => {
+ const [inputdata, handleChange] = useForm();
+ 
+ let navigate = useNavigate();
+ 
+ const handleSubmit = e =>{
+   e.preventDefault();
+ 
+   fetch('/login',{
+     method:"POST",
+     headers:{
+       'Content-Type':'application/json'
+     },
+     body:JSON.stringify({
+       email:inputdata.email,
+       password:inputdata.password
+     })
+   })
+   .then(response=>response.json())
+   .then(res=>{
+     console.log(res)
+     setUser(res);
+     localStorage.setItem("token",res.jwt)
+     navigate('/assessments')
+   })
+   .catch(err=>{
+     console.log(err)
+   })
+ }
+   return (
+       <div className="login-form">
+           <Form onSubmit={handleSubmit}>
+           <Col xs={12}>
+         <Form.Group className="mb-3" controlId="formBasicEmail">
+           <Form.Label>Email address</Form.Label>
+           <Form.Control type="email" name="email" onChange={handleChange} placeholder="Enter email" />
+         </Form.Group>
+         </Col>
+         <Col xs={12}>
+ 
+         <Form.Group className="mb-3" controlId="formBasicPassword">
+           <Form.Label>Password</Form.Label>
+           <Form.Control type="password" name="password" onChange={handleChange} placeholder="Password" />
+         </Form.Group>
+         </Col>
+         <Button id="login-button" type="submit">
+           Login
+         </Button>
+       </Form>
+       </div>
+      
+     );
 }

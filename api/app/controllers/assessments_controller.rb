@@ -1,4 +1,5 @@
 class AssessmentsController < ApplicationController
+
      #get assessments
      def index
         assessments =Assessment.all

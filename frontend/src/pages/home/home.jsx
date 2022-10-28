@@ -63,5 +63,4 @@ export const HomePage = () => {
         
         
         </div>
-    )
-}
+    )}
