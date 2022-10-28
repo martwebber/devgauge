@@ -3,7 +3,11 @@
 one:
   title: MyString
   description: MyString
+  duration: MyString
+  assessment_type: MyString
 
 two:
   title: MyString
   description: MyString
+  duration: MyString
+  assessment_type: MyString

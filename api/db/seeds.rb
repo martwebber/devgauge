@@ -18,9 +18,9 @@
 # quiz3 = Question.create(quiz: "What is your fav name?", answer_id: answer3.id)
 
 
-Assessment.create(user_id: 1, title: "Python", description: "Introduction to Python")
-Assessment.create(user_id: 1, title: "Ruby on rails", description: "Ruby on rails")
-Assessment.create( user_id: 1 , title: "Bootstrap", description: "Introduction to Bootstrap")
-Assessment.create(user_id: 1, title: "Python", description: "Introduction to Python")
-Assessment.create(user_id: 1, title: "Ruby on rails", description: "Ruby on rails")
-Assessment.create( user_id: 1 , title: "Bootstrap", description: "Introduction to Bootstrap")
+Assessment.create(user_id: 1, title: "Python", description: "Introduction to Python", duration: "1", assessment_type: "trial")
+Assessment.create(user_id: 1, title: "Ruby on rails", description: "Ruby on rails", duration: "1", assessment_type: "trial")
+Assessment.create( user_id: 1 , title: "Bootstrap", description: "Introduction to Bootstrap", duration: "1", assessment_type: "trial")
+Assessment.create(user_id: 1, title: "Python", description: "Introduction to Python", duration: "1", assessment_type: "trial")
+Assessment.create(user_id: 1, title: "Ruby on rails", description: "Ruby on rails", duration: "1", assessment_type: "trial")
+Assessment.create( user_id: 1 , title: "Bootstrap", description: "Introduction to Bootstrap", duration: "1", assessment_type: "trial")
