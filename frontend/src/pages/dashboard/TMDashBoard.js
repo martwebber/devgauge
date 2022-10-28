@@ -2,16 +2,21 @@ import React, {useEffect, useState} from "react";
 import "../questions/Question.css";
 import TMCard from "./TMCard"
 
-function TMDashBoard() {
+function TMDashBoard({user}) {
 
 
 const[assessment, setAssessment] = useState([])
-
+console.log(user)
 useEffect(() => {
-    fetch("/assessments")
+
+  const config = {
+    headers:{
+      Authorization: 'Bearer ' + localStorage.getItem('token')    }
+  }
+    fetch("/assessments",config)
     .then((res) => res.json())
     .then((data) => {
-        console.log(data)
+        console.log(config)
         setAssessment(data)
     })
 }, [])
