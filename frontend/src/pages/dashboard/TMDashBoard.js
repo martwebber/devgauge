@@ -3,9 +3,8 @@ import "../questions/Question.css";
 import TMCard from "./TMCard"
 
 function TMDashBoard({user}) {
+  const[assessment, setAssessment] = useState([])
 
-
-const[assessment, setAssessment] = useState([])
 console.log(user)
 useEffect(() => {
 
