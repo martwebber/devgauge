@@ -40,6 +40,8 @@ useEffect(() => {
                 <TMCard
                 title= {item.title}
                 description= {item.description}
+                duration={item.duration}
+                assessmentType={item.assessment_type}
                 key= {item.key}
                 assessmentid= {item.id}
                 assessment={assessment}

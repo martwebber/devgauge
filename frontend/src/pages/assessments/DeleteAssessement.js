@@ -9,7 +9,7 @@ function DeleteAssessement({assessmentid, assessment, setAssessment}){
         .then((res) => res.json())
         .then(() => {
             let findassessment = assessment.filter((item) => item.id !== assessmentid)
-            console.log(findassessment)
+            // console.log(findassessment)
             setAssessment(findassessment)
         })
     }
