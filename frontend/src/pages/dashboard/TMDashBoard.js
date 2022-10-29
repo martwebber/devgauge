@@ -5,7 +5,7 @@ import TMCard from "./TMCard"
 function TMDashBoard({user}) {
   const[assessment, setAssessment] = useState([])
 
-console.log(user)
+// console.log(user)
 useEffect(() => {
 
   const config = {
@@ -15,10 +15,10 @@ useEffect(() => {
     fetch("/assessments",config)
     .then((res) => res.json())
     .then((data) => {
-        console.log(config)
+        // console.log(config)
         setAssessment(data)
     })
-}, [])
+}, [assessment])
 
 
   return (
@@ -35,13 +35,15 @@ useEffect(() => {
           </p>
           <div className="tmCard">
           {assessment.map((item) => {
-            console.log(item)
+            // console.log(item)
             return(
                 <TMCard
                 title= {item.title}
                 description= {item.description}
                 key= {item.key}
-                id= {item.id}
+                assessmentid= {item.id}
+                assessment={assessment}
+                setAssessment={setAssessment}
                 />
             )
             
