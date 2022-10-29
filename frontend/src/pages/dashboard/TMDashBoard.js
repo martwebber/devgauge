@@ -18,7 +18,7 @@ useEffect(() => {
         // console.log(config)
         setAssessment(data)
     })
-}, [assessment])
+}, [])
 
 
   return (

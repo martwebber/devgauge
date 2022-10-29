@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import './login.css'
  
-export const Login = ({setUser}) => {
+export const Login = ({setUser, user}) => {
  const [inputdata, handleChange] = useForm();
  
  let navigate = useNavigate();
@@ -26,8 +26,10 @@ export const Login = ({setUser}) => {
    .then(response=>response.json())
    .then(res=>{
      console.log(res)
-     setUser(res.user);
-     localStorage.setItem("token",res.jwt)
+    //  setUser(res.user);
+    //  localStorage.setItem("token",res.jwt)
+     localStorage.setItem("token",JSON.stringify(res))
+    //  setUser(res.user);
      navigate('/assessments')
    })
    .catch(err=>{

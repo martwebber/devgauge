@@ -13,7 +13,14 @@ import { HomePage } from "./pages/home/home";
 function App() {
   const [user, setUser] = useState(null);
 
- 
+  const token = localStorage.getItem("jwt");
+
+  fetch("http://localhost:3000/me", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
   return (
     <div className="App">
@@ -33,7 +40,7 @@ function App() {
         <Route path="blog"></Route>
         <Route path="contacts"></Route>
         <Route path="signup" element={<SignUp />}></Route>
-        <Route path="login" element={<Login setUser={setUser} />}></Route>
+        <Route path="login" element={<Login setUser={setUser} user={user} />}></Route>
         <Route path="dashboard" element={<Dashboard />}></Route>
         <Route path="home" element={<HomePage />}></Route>
       </Routes>

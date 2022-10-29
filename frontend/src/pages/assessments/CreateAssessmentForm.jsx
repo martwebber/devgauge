@@ -7,6 +7,9 @@ function CreateAssessmentForm({user, setUser}) {
   // console.log(user.id)
   // console.log(user)
 
+  const userx = JSON.parse(localStorage.getItem("token"));
+  console.log(userx.user.username)
+
   const[assessment, setAssessment] = useState([])
  
   const[title, setTitle]=useState("")
