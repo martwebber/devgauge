@@ -14,10 +14,10 @@ function TMCard({
   duration,
 }) {
   return (
-    <div style={{ display: "grid" }}>
+    <div style={{ marginBottom: 20 + "px"}}>
       <div
         className="card"
-        style={{ width: 20 + "rem", marginLeft: 30 + "px" }}
+        style={{ width: 20 + "rem", marginLeft: 20 + "px" }}
       >
         <img src={imagecard} alt="imagecard" className="card-img-top" />
         <div className="card-body">
@@ -26,9 +26,6 @@ function TMCard({
           
           <br />
 
-          {/* <div style={{}}>
-          <button style={{backgroundColor: "blue", borderRadius: 15 + "px"}}>Edit</button>
-        </div><br/> */}
           <div>
             <UpdateAssessement
               assessmentid={assessmentid}
