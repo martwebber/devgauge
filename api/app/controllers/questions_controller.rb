@@ -14,8 +14,8 @@ class QuestionsController < ApplicationController
 
     def create
         jwt_data = decoded_token
-        user = User.find(jwt_data[0]["user_id"]) 
-        user1 = user.user_type
+        # user = User.find(jwt_data[0]["user_id"]) 
+        # user1 = user.user_type
         if jwt_data  && (user1 != "student")
             question = Question.create(params_quiz)
             render json: question
@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
             render json: {errors: ["Only TM and admin can create a Question"]}
         end
     end
-
+    
     #update a question
 
     def update
