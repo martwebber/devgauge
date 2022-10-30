@@ -1,5 +1,6 @@
 class AssessmentsController < ApplicationController
-
+    before_action :authorize_assessment
+    skip_before_action :authorize_assessment, only: [:index, :show]
 
         #get assessments
         def index
@@ -15,7 +16,9 @@ class AssessmentsController < ApplicationController
    
        #create assessment
        def create
-           assessment = Assessment.create(params_assignment)
+        jwt_data = decoded_token
+        user = User.find(jwt_data[0]["user_id"]) 
+           assessment = user.assessments.create(params_assignment)
            render json: assessment
        end
    

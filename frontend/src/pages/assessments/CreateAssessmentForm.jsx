@@ -3,12 +3,10 @@ import "../questions/Question.css";
 
 function CreateAssessmentForm({user, setUser}) {
 
-  // const userid = user.map((id) => id.id)
-  // console.log(user.id)
-  // console.log(user)
-
-  const userx = JSON.parse(localStorage.getItem("token"));
-  console.log(userx.user.username)
+  // find the user ID
+  const userInfo = JSON.parse(localStorage.getItem("token"));
+  console.log(userInfo.user.username)
+  const userID= userInfo.user.id
 
   const[assessment, setAssessment] = useState([])
  
@@ -16,22 +14,21 @@ function CreateAssessmentForm({user, setUser}) {
   const[description, setDescription]=useState("")
   const[duration, setDuration]=useState("")
   const[assessmentType, setAssessmentType]=useState("")
-  const[userId, setUserId]=useState("")
-
 
   function handleSubmit(e){
     e.preventDefault()
     fetch("/assessments", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: 'Bearer ' + userInfo.jwt 
       },
       body: JSON.stringify({
         title: title,
         description: description,
         duration: duration,
         assessment_type: assessmentType,
-        user_id: userId
+        user_id: userID
       })
       
     })
@@ -49,10 +46,9 @@ function CreateAssessmentForm({user, setUser}) {
     .then((res) => res.json())
     .then((data) => {
       localStorage.setItem("jwt", data.jwt);
-      setAssessment(data.assessment)
-      console.log(data)
       console.log(assessment)
-      console.log(data.jwt)
+      console.log(data)
+
       setAssessment([data, ...assessment])
       console.log(assessment)
      
@@ -61,7 +57,6 @@ function CreateAssessmentForm({user, setUser}) {
       setDescription("")
       setDuration("")
       setAssessmentType("")
-      // setUserId("")
       
     })
   }
@@ -119,7 +114,7 @@ function CreateAssessmentForm({user, setUser}) {
             value={duration}
             name="duration"
           />
-           <input
+           {/* <input
             type="number"
             className="form-control"
             placeholder="UserId"
@@ -127,7 +122,7 @@ function CreateAssessmentForm({user, setUser}) {
             onChange={(e) => setUserId(e.target.value)}
             value={userId}
             name="userId"
-          />
+          /> */}
         </div><br/><br/><br/>
         <div>
           <input className="inputField" type="submit" value="Preview" />
