@@ -21,7 +21,7 @@ const [user, setUser] = useState(null)
       <Routes>
       <Route path="/" ></Route>
       <Route path="about" ></Route>
-      <Route path="assessments" element={<Assessments user={user}/>}></Route>
+      <Route path="assessments" element={<Assessments/>}></Route>
       <Route path="question" ></Route>
       {/* <Route path="tm" ></Route> */}
       <Route path="assessment" ></Route>
@@ -31,7 +31,7 @@ const [user, setUser] = useState(null)
       <Route path="contacts" ></Route>
       <Route path="signup" element={<SignUp/>}></Route>
       <Route path="login" element={<Login setUser={setUser}/>}></Route>
-      <Route path="dashboard" element={<Dashboard/>}></Route>
+      <Route path="dashboard" element={<Dashboard user={user}/>}></Route>
       <Route path="home" element={<HomePage/>}></Route>
 
       </Routes>

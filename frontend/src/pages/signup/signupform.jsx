@@ -29,7 +29,7 @@ export const SignUp = () => {
           })
           .then(response=>response.json())
           .then(data=>{console.log(data)
-            localStorage.setItem("user-info",JSON.stringify(data))
+            localStorage.setItem("userInfo",JSON.stringify(data))
           navigate("/")
         })
 

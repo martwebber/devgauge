@@ -6,7 +6,8 @@ import 'react-router-dom';
 
 
 
-export const Dashboard = () => {
+export const Dashboard = ({user}) => {
+  console.log(user)
   return (
     
     <div className='container'>

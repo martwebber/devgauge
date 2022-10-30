@@ -2,16 +2,16 @@ import React, {useEffect, useState} from "react";
 import "../questions/Question.css";
 import TMCard from "./TMCard"
 
-function TMDashBoard({user}) {
+function TMDashBoard() {
 
-
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 const[assessment, setAssessment] = useState([])
-console.log(user)
+console.log(userInfo.user)
 useEffect(() => {
 
   const config = {
     headers:{
-      Authorization: 'Bearer ' + localStorage.getItem('token')    }
+      Authorization: 'Bearer ' + userInfo.jwt    }
   }
     fetch("/assessments",config)
     .then((res) => res.json())
