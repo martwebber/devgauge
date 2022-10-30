@@ -13,14 +13,23 @@ import { HomePage } from "./pages/home/home";
 function App() {
   const [user, setUser] = useState(null);
 
-  const token = localStorage.getItem("jwt");
+  const userInfo = JSON.parse(localStorage.getItem("token"));
+  console.log(userInfo)
+  
+    const config = {
+      headers:{
+        Authorization: 'Bearer ' + userInfo.jwt    }
+    }
+  useEffect(() => {
+    fetch("http://localhost:3000/me", config)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data)
+    })
 
-  fetch("http://localhost:3000/me", {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  }, [])
+
+  console.log(user)
 
   return (
     <div className="App">
