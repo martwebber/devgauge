@@ -62,7 +62,7 @@ function handleSubmit(e){
 
       <div>
           {/* <select class="form-select">
-            <option selected>Select Topic</option>
+            <option selected >Select Topic</option>
             <option>Ruby_1</option>
             <option>Java Script_2</option>
             <option>Ruby on Rails_3</option>

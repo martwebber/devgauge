@@ -28,6 +28,7 @@ function App() {
       console.log(data)
     })
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   console.log(user)
