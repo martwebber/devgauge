@@ -10,6 +10,7 @@ import { Login } from "./pages/login/LoginForm";
 import { SignUp } from "./pages/signup/signupform";
 import { HomePage } from "./pages/home/home";
 
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -23,7 +24,7 @@ function App() {
         <Route path="about"></Route>
         <Route path="assessments" element={<Assessments user={user} />}></Route>
         <Route path="question"></Route>
-        {/* <Route path="tm" ></Route> */}
+        <Route path="tm" ></Route>
         <Route path="assessment"></Route>
         <Route
           path="create-assessment"
