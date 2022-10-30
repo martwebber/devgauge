@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Question from "../questions";
+// import Question from "../questions/Question";
 
 function QuizCard({ question, user, questions, correctanswer, setQuestions }) {
   const createdDate = new Date(question.created_at).toLocaleDateString();
@@ -26,13 +26,13 @@ function QuizCard({ question, user, questions, correctanswer, setQuestions }) {
   return (
     <div className="question-specific">
       <div className="question-head">
-        <div className="first-letter">{question.title}</div>
+        <div className="first-letter">{question.quiz}</div>
         <div className="user-date">
           <h4>{user.username}</h4>
           <p>{createdDate}</p>
         </div>
         <div className="question-title">
-            <h2>{question.title}</h2>
+            <h2>{question.quiz}</h2>
             <h3>{question}</h3> 
             <h2>{correctanswer}</h2> 
 
