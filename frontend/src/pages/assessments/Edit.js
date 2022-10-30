@@ -18,6 +18,10 @@ function Edit({
   //   setTitleBody(updatedTitle);
   // }
 
+  const userInfo = JSON.parse(localStorage.getItem("token"));
+  // console.log(userInfo.user.username)
+  // const userID= userInfo.user.id
+
   function handleSubmit(e) {
     // console.log(e);
     e.preventDefault();
@@ -26,6 +30,7 @@ function Edit({
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        Authorization: 'Bearer ' + userInfo.jwt 
       },
       body: JSON.stringify({
         title: titleBody,

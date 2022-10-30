@@ -10,7 +10,7 @@ function UpdateAssessement({
   assessmentType,
   duration,
 }) {
-  const [isHidden, setIsHidden] = useState(true);
+  const [isHidden, setIsHidden] = useState(false);
   const [titleBody, setTitleBody] = useState(title)
   const [descriptionBody, setDescriptionBody] = useState(description)
   const [durationBody, setDurationBody] = useState(duration)
@@ -30,7 +30,8 @@ function UpdateAssessement({
   // }
   return (
     <div>
-     { isHidden ? null : <Edit 
+      <div className="editassessment">
+      { isHidden ? <Edit 
       titleBody={titleBody}
       setTitleBody={setTitleBody}
       setIsHidden={setIsHidden}
@@ -44,7 +45,9 @@ function UpdateAssessement({
        setAssessmentBody={setAssessmentBody}
        descriptionBody={descriptionBody}
        setDescriptionBody={setDescriptionBody}
-      />}
+      /> : null}
+      </div>
+     
       <button onClick={handlehide} style={{ backgroundColor: "blue", borderRadius: 15 + "px" }}>
         Edit
       </button>
