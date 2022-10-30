@@ -35,6 +35,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
+
         <Route path="/"></Route>
         <Route path="about"></Route>
         <Route path="assessments" element={<Assessments user={user} />}></Route>

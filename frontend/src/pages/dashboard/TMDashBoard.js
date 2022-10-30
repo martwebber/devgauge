@@ -5,8 +5,8 @@ import TMCard from "./TMCard"
 function TMDashBoard({user}) {
   const[assessment, setAssessment] = useState([])
 
-  const userInfo = JSON.parse(localStorage.getItem("token"));
-// console.log(userInfo)
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
 useEffect(() => {
 
   const config = {
