@@ -14,7 +14,23 @@ import { HomePage } from "./pages/home/home";
 function App() {
   const [user, setUser] = useState(null);
 
- 
+  const userInfo = JSON.parse(localStorage.getItem("token"));
+  console.log(userInfo)
+  
+    const config = {
+      headers:{
+        Authorization: 'Bearer ' + userInfo.jwt    }
+    }
+  useEffect(() => {
+    fetch("http://localhost:3000/me", config)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data)
+    })
+
+  }, [])
+
+  console.log(user)
 
   return (
     <div className="App">
@@ -34,7 +50,7 @@ function App() {
         <Route path="blog"></Route>
         <Route path="contacts"></Route>
         <Route path="signup" element={<SignUp />}></Route>
-        <Route path="login" element={<Login setUser={setUser} />}></Route>
+        <Route path="login" element={<Login setUser={setUser} user={user} />}></Route>
         <Route path="dashboard" element={<Dashboard />}></Route>
         <Route path="home" element={<HomePage />}></Route>
       </Routes>

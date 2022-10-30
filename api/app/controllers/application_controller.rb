@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
 
  
-    #  before_action :authorized
+     before_action :authorized
     def encode_token(payload)
         # should store secret in env variable
         JWT.encode(payload, 'my_s3cr3t')
@@ -31,6 +31,14 @@ class ApplicationController < ActionController::API
     #   user1 = user.user_type
     #   unauthorized unless jwt_data  && (user1 == "student")
     # end
+
+     def authorize_assessment
+      jwt_data = decoded_token
+      user = User.find(jwt_data[0]["user_id"]) 
+      user1 = user.user_type
+      unauthorized unless jwt_data  && (user1 != "student")
+    end
+
 
 
     def unauthorized

@@ -5,20 +5,24 @@ import TMCard from "./TMCard"
 function TMDashBoard({user}) {
   const[assessment, setAssessment] = useState([])
 
-// console.log(user)
+  const userInfo = JSON.parse(localStorage.getItem("token"));
+// console.log(userInfo)
 useEffect(() => {
 
   const config = {
     headers:{
-      Authorization: 'Bearer ' + localStorage.getItem('token')    }
+      Authorization: 'Bearer ' + userInfo.jwt    }
   }
     fetch("/assessments",config)
     .then((res) => res.json())
     .then((data) => {
         // console.log(config)
+        // console.log(data)
+      
         setAssessment(data)
     })
-}, [assessment])
+}, [])
+console.log(user)
 
 
   return (

@@ -14,7 +14,8 @@ function TMCard({
   duration,
 }) {
   return (
-    <div style={{ marginBottom: 20 + "px"}}>
+    <div>
+      <div style={{ marginBottom: 20 + "px"}}>
       <div
         className="card"
         style={{ width: 20 + "rem", marginLeft: 20 + "px" }}
@@ -55,6 +56,19 @@ function TMCard({
         </div>
       </div>
     </div>
+   
+            {/* <UpdateAssessement
+              assessmentid={assessmentid}
+              assessment={assessment}
+              setAssessment={setAssessment}
+              duration={duration}
+              assessmentType={assessmentType}
+              title={title}
+              description={description}
+            />
+          */}
+    </div>
+    
   );
 }
 export default TMCard;
