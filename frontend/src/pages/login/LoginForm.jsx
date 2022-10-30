@@ -25,11 +25,8 @@ export const Login = ({setUser, user}) => {
    })
    .then(response=>response.json())
    .then(res=>{
-     console.log(res)
-     localStorage.setItem("token",JSON.stringify(res))
-    console.log(res.user)
-    //  setUser(res.user);
-     navigate('/assessments')
+localStorage.setItem("userInfo",JSON.stringify(res))
+navigate('/dashboard')
    })
    .catch(err=>{
      console.log(err)
