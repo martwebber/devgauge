@@ -25,4 +25,5 @@ class User < ApplicationRecord
     #   end
     # end
     
+    has_many :assessments
 end

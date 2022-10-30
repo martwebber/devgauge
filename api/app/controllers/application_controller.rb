@@ -32,6 +32,14 @@ class ApplicationController < ActionController::API
     #   unauthorized unless jwt_data  && (user1 == "student")
     # end
 
+     def authorize_assessment
+      jwt_data = decoded_token
+      user = User.find(jwt_data[0]["user_id"]) 
+      user1 = user.user_type
+      unauthorized unless jwt_data  && (user1 != "student")
+    end
+
+
 
     def unauthorized
         render json: { errors: ["You cannot perform that action"]}

@@ -2,11 +2,11 @@ import React, {useEffect, useState} from "react";
 import "../questions/Question.css";
 import TMCard from "./TMCard"
 
-function TMDashBoard() {
+function TMDashBoard({user}) {
+  const[assessment, setAssessment] = useState([])
 
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-const[assessment, setAssessment] = useState([])
-console.log(userInfo.user)
+
 useEffect(() => {
 
   const config = {
@@ -16,10 +16,13 @@ useEffect(() => {
     fetch("/assessments",config)
     .then((res) => res.json())
     .then((data) => {
-        console.log(config)
+        // console.log(config)
+        // console.log(data)
+      
         setAssessment(data)
     })
 }, [])
+console.log(user)
 
 
   return (
@@ -36,13 +39,17 @@ useEffect(() => {
           </p>
           <div className="tmCard">
           {assessment.map((item) => {
-            console.log(item)
+            // console.log(item)
             return(
                 <TMCard
                 title= {item.title}
                 description= {item.description}
+                duration={item.duration}
+                assessmentType={item.assessment_type}
                 key= {item.key}
-                id= {item.id}
+                assessmentid= {item.id}
+                assessment={assessment}
+                setAssessment={setAssessment}
                 />
             )
             

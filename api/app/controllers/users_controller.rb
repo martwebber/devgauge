@@ -21,8 +21,17 @@ skip_before_action :authorized, only: [:create]
     end
 
     def show 
-        user = find_user
-        render json: user
+        jwt_data = decoded_token
+        user = User.find(jwt_data[0]["user_id"]) 
+        if jwt_data && user
+            render json: user
+        else
+            render json: {errors: ["Not found"]}
+        end
+
+
+        # user = find_user
+        # render json: user
     end
 
     def update

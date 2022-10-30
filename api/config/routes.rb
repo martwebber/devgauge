@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :questions
   resources :topics, except: [:show]
   post '/login', to: 'authentication#login'
+  get '/me', to: 'users#show'
  
 end

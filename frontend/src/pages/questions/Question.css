@@ -40,6 +40,9 @@ button {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 80%;
-    margin:10px auto;
+    /* width: 90%; */
+    margin-left:50px;
+    /* margin-bottom:50px; */
+    /* justify-content: center; */
+    /* align-items: center */
 }

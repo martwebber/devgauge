@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import './login.css'
  
-export const Login = ({setUser}) => {
+export const Login = ({setUser, user}) => {
  const [inputdata, handleChange] = useForm();
  
  let navigate = useNavigate();
@@ -25,9 +25,8 @@ export const Login = ({setUser}) => {
    })
    .then(response=>response.json())
    .then(res=>{
-    setUser(res.user)
-     localStorage.setItem("userInfo",JSON.stringify(res))
-    navigate('/dashboard')
+localStorage.setItem("userInfo",JSON.stringify(res))
+navigate('/dashboard')
    })
    .catch(err=>{
      console.log(err)
