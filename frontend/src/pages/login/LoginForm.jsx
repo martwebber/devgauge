@@ -23,16 +23,20 @@ export const Login = ({setUser, user}) => {
        password:inputdata.password
      })
    })
-   .then(response=>response.json())
    .then(res=>{
-localStorage.setItem("userInfo",JSON.stringify(res))
-navigate('/dashboard')
-   })
-   .catch(err=>{
-     console.log(err)
-   })
+    if(res.ok){
+      res.json().then(res=>{
+        localStorage.setItem("userInfo",JSON.stringify(res))
+        navigate('/dashboard')
+           })
+    }else{
+      res.json().catch(err=>{console.log(err)})
+    }
+   }
+    )
  }
    return (
+    <div className='log'>
        <div className="login-form">
            <Form onSubmit={handleSubmit}>
            <Col xs={12}>
@@ -53,6 +57,6 @@ navigate('/dashboard')
          </Button>
        </Form>
        </div>
-      
+      </div>
      );
 }

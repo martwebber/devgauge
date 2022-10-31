@@ -13,9 +13,14 @@ import { HomePage } from "./pages/home/home";
 function App() {
   const [user, setUser] = useState(null);
 
-  // const userInfo = JSON.parse(localStorage.getItem("token"));
-  // console.log(userInfo)
-  
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  console.log(userInfo)
+   
+
+  /*
+      USEEFFECT CAUSING AN ERROR
+  */
+
   //   const config = {
   //     headers:{
   //       Authorization: 'Bearer ' + userInfo.jwt    }

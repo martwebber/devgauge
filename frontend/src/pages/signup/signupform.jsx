@@ -40,6 +40,7 @@ export const SignUp = () => {
             <div>
                 <h2>Practice coding, prepare for interviews, and get hired.</h2>
             </div>
+            <div className="sign">
             <div className="sign-up-form">
                 <Form onSubmit={handleSubmit}>
                     <Col xs={12}>
@@ -81,6 +82,7 @@ export const SignUp = () => {
             </Button>
             </Form>
             </div>
+        </div>
         </div>
       );
 }
