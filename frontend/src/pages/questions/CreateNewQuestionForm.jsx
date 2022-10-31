@@ -61,14 +61,14 @@ function handleSubmit(e){
       </div>
 
       <div>
-          {/* <select class="form-select">
-            <option selected >Select Topic</option>
+          <select class="form-select">
+            <option selected>Select Topic</option>
             <option>Ruby_1</option>
             <option>Java Script_2</option>
             <option>Ruby on Rails_3</option>
             <option>Python_4</option>
             <option>C++_5</option>
-          </select> */}
+          </select>
         </div>
         <div className="col-12">
           <input

@@ -1,5 +1,5 @@
 import React from 'react'
-import CreateNewQuestionForm from '../questions/CreateQuestionForm'
+import CreateNewQuestionForm from '../questions/CreateNewQuestionForm'
 
 export const CreateQuestion = () => {
   return (

@@ -1,18 +1,17 @@
-// import StudentDashboard from "../dashboard/StudentDashboard"
+import CreateNewQuestionForm from "./CreateNewQuestionForm"
 
-// export const Questions = () => {
+export const Questions = () => {
     
-//     return (
-//       <div>
-//         <div>Questions</div>
-//         <div>List Of Questions Below</div>
+    return (
+      <div>
+        <div>Questions</div>
   
-//         <div>
-//         <StudentDashboard/>
-//         </div>
+        <div>
+        <CreateNewQuestionForm />
+        </div>
         
         
-//       </div>
+      </div>
       
-//     )
-//   }
+    )
+  }
