@@ -3,7 +3,7 @@ import React from 'react';
 function DeleteAssessement({assessmentid, assessment, setAssessment}){
 
     function handleDeleteClick(){
-        const userInfo = JSON.parse(localStorage.getItem("token"));
+        const userInfo = JSON.parse(localStorage.getItem("userInfo"));
         fetch(`/assessments/${assessmentid}`, {
             method: 'DELETE',
             headers: {

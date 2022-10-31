@@ -61,7 +61,7 @@ class QuestionsController < ApplicationController
     end
 
     def params_quiz
-        params.permit(:quiz, :correct_answer, :topic_id)
+        params.permit(:quiz, :correct_answer, :topic_id, :assessment_id)
     end
 
 end

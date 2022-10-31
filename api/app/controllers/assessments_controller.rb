@@ -5,13 +5,13 @@ class AssessmentsController < ApplicationController
         #get assessments
         def index
            assessments =Assessment.all
-           render json: assessments 
+           render json: assessments, include: ["questions", "questions.answers"]
        end
    
        #get assessment
        def show
            assessment = Assessment.find(params[:id])
-           render json: assessment
+           render json: assessment, include: ["questions", "questions.answers"]
        end
    
        #create assessment
@@ -23,14 +23,29 @@ class AssessmentsController < ApplicationController
        end
    
        #update assessment
+
+    #    def update
+    #     assessment = Assessment.find(params[:id])
+    #     jwt_data = decoded_token
+    #     user = User.find(jwt_data[0]["user_id"]) 
+    #     user1 = user.user_type
+    #     if jwt_data  && (user1 == "TM")
+    #         assessment.update(params_update)
+    #         render json: assessment
+    #     else
+    #         render json: {errors: ["Only TM and admin can update an assessment"]}
+    #     end
+    # end
        def update
+    
            assessment = Assessment.find(params[:id])
            if assessment
-               assessment.update(params_assignment)
+               assessment.update(params_update)
                render json: assessment, status: :accepted   
            else
                render json: {error: "assessment not found"}, status: :not_found  
            end
+        
    
        end
    
@@ -51,6 +66,9 @@ class AssessmentsController < ApplicationController
        def params_assignment
            params.permit( :title, :description,  :duration, :assessment_type, :user_id,)
        end
+       def params_update
+        params.permit( :title, :description,  :duration, :assessment_type)
+    end
    
         # Find an assessment 
         def find_assessment 
