@@ -9,7 +9,7 @@ export const CreateQuestion = () => {
       <div>Create a Question</div>
 <br/><br/>
 <div>
-      {/* <CreateNewQuestionForm/> */}
+      <CreateNewQuestionForm/>
       </div>
 
       <QuestionsList/>

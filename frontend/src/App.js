@@ -13,23 +13,23 @@ import { HomePage } from "./pages/home/home";
 function App() {
   const [user, setUser] = useState(null);
 
-  const userInfo = JSON.parse(localStorage.getItem("token"));
-  console.log(userInfo)
+  // const userInfo = JSON.parse(localStorage.getItem("token"));
+  // console.log(userInfo)
   
-    const config = {
-      headers:{
-        Authorization: 'Bearer ' + userInfo.jwt    }
-    }
-  useEffect(() => {
-    fetch("http://localhost:3000/me", config)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data)
-    })
+  //   const config = {
+  //     headers:{
+  //       Authorization: 'Bearer ' + userInfo.jwt    }
+  //   }
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/me", config)
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     console.log(data)
+  //   })
 
-  }, [])
+  // }, [])
 
-  console.log(user)
+  // console.log(user)
 
   return (
     <div className="App">
@@ -40,7 +40,7 @@ function App() {
         <Route path="about"></Route>
         <Route path="assessments" element={<Assessments user={user} />}></Route>
         <Route path="question"></Route>
-        {/* <Route path="tm" ></Route> */}
+        <Route path="tm" ></Route>
         <Route path="assessment"></Route>
         <Route
           path="create-assessment"
@@ -52,7 +52,7 @@ function App() {
         <Route path="signup" element={<SignUp />}></Route>
         <Route path="login" element={<Login setUser={setUser} user={user} />}></Route>
         <Route path="dashboard" element={<Dashboard />}></Route>
-        <Route path="home" element={<HomePage />}></Route>
+        <Route path="home" element={<HomePage />}></Route> 
       </Routes>
     </div>
   );

@@ -7,7 +7,9 @@ import { useState, useRef } from "react";
 import {useNavigate} from "react-router-dom"
 // import Questions from "./QuestionsPage"
 
-
+const userInfo = JSON.parse(localStorage.getItem("userInfo") );
+  console.log(userInfo.user.username)
+  const userID= userInfo.user.id
 
 function CreateNewQuestionForm({questions, setQuestions}) {
   const [postData, setPoastData] = useState({
@@ -32,7 +34,8 @@ function handleSubmit(e){
     fetch("/questions",{
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          Authorization: 'Bearer ' + userInfo.jwt 
         },
         body: JSON.stringify(postData)
     }).then((r) => {
@@ -61,8 +64,8 @@ function handleSubmit(e){
       </div>
 
       <div>
-          <select class="form-select">
-            <option selected>Select Topic</option>
+          <select className="form-select">
+            <option >Select Topic</option>
             <option>Ruby_1</option>
             <option>Java Script_2</option>
             <option>Ruby on Rails_3</option>
