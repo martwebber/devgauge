@@ -97,4 +97,4 @@ jobs:
           bundle config path vendor/bundle
           cd api
           bundle install
-          rspec
+          bundle exec rspec
