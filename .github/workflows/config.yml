@@ -1,38 +1,36 @@
 # Put this in the file: .github/workflows/verify.yml
 
-name: Verify
-on: 
-  pull_request:
-    branches:
-      - "*"
-  push:
-    branches:
-      - "*"
+# name: CI/CD Pipeline
+# on: 
+#   pull_request:
+#     branches: [master,dev]
+#   push:
+#     branches: [master,dev]
 
-jobs:
-  linters:
-    name: Linters
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+# jobs:
+#   linters:
+#     name: Linters
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
 
-      - name: Setup Ruby and install gems
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.1.0
+#       - name: Setup Ruby and install gems
+#         uses: ruby/setup-ruby@v1
+#         with:
+#           ruby-version: 3.1.0
 
-      - name: Run linters
-        run: |
-          bin/rubocop --parallel
-          bin/stylelint
-          bin/prettier
-          bin/eslint
+#       - name: Run linters
+#         run: |
+#           bin/rubocop --parallel
+#           bin/stylelint
+#           bin/prettier
+#           bin/eslint
 
-      - name: Run security checks
-        run: |
-          bin/bundler-audit --update
-          bin/brakeman -q -w2
+#       - name: Run security checks
+#         run: |
+#           bin/bundler-audit --update
+#           bin/brakeman -q -w2
 
   # tests:
   #   name: Tests
@@ -65,3 +63,37 @@ jobs:
 
   #     - name: Run tests
   #       run: bin/rspec
+
+name: CI/CD Pipeline
+on: 
+  pull_request:
+    branches: [master,dev]
+  push:
+    branches: [master,dev, devgauge-tests]
+
+jobs:
+  Test: 
+    runs-on: ubuntu-latest
+    # services:
+    #   postgres:
+    #     image: postgres:14.5
+    #     env:
+    #       POSTGRES_USER: postgres
+    #       POSTGRES_PASSWORD: password
+    #     ports: ["5432:5432"]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1.0
+
+      - name: Install dependencies
+        run: |
+          gem install bunler
+          bundle config path vendor/bundle
+          bundle install jobs 4 --retry 3
+          yarn install --frozen-lockfile
