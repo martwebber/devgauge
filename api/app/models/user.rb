@@ -6,7 +6,7 @@ class User < ApplicationRecord
     # validates_inclusion_of :user_type, :in => %w(student TM admin), :message =>  "%{value} is not a valid user type" 
     # validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@student\.moringaschool\.com\z/, message: "must be a student.moringaschool.com account" }
     #validates :validate_email_domain
-
+    
 
     has_secure_password
 

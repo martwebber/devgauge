@@ -40,9 +40,7 @@ it 'is valid if user type is set' do
   @user.user_type = nil
   expect(@user).to_not be_valid
 end
-    it { is_expected.to validate_presence_of(:username) }
     it { is_expected.to validate_uniqueness_of(:username) }
-    it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_uniqueness_of(:email) }
   end
 
