@@ -36,6 +36,7 @@ export const Login = ({setUser, user}) => {
     )
  }
    return (
+    <div className='log'>
        <div className="login-form">
            <Form onSubmit={handleSubmit}>
            <Col xs={12}>
@@ -56,6 +57,6 @@ export const Login = ({setUser, user}) => {
          </Button>
        </Form>
        </div>
-      
+      </div>
      );
 }
