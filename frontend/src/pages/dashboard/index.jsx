@@ -16,6 +16,7 @@ export const Dashboard = ({user}) => {
       
       </div>
         <div className='side-menu'>
+          
         <Button className='button-side' href="#">Profile</Button> 
         <Button className='button-side' href="#">Notifications</Button>
         <Button className='button-side' href="../assessments">Assessments</Button>
@@ -23,7 +24,7 @@ export const Dashboard = ({user}) => {
         <Button className='button-side' href="#">Grades</Button>
 
         <Button className='button-side' href="#../login">Log Out</Button>
-     
+      
         </div>
     </div>
     
