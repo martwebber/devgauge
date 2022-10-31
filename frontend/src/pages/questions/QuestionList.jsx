@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./Question.css";
 import { useParams } from "react-router-dom";
+import {useNavigate} from "react-router-dom"
 
 function QuestionList() {
+
+    const history = useNavigate();
+
+    function handleClick (path){
+      history(path)
+  
+    }
   const params = useParams();
   console.log(params);
   const [questionList, setQuestionList] = useState({
@@ -58,6 +66,10 @@ function QuestionList() {
         );
       })}
       </ol>
+      <div> 
+        <button onClick={() => handleClick("/assessments")} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Back</button>
+      </div>
+     
     </div>
   );
 }
