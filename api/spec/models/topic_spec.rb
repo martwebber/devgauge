@@ -13,7 +13,7 @@ RSpec.describe Topic, type: :model do
 
   describe 'validations' do
     it 'is valid if topic content is set' do
-      @topic.quiz = nil
+      @topic.topic_content = nil
       expect(@topic).to_not be_valid
     end
 

@@ -97,3 +97,7 @@ jobs:
           bundle config path vendor/bundle
           cd api
           bundle install
+
+      - name: Test with rspec
+        run: |
+          rspec
