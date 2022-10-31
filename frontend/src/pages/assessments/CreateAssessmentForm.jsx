@@ -119,9 +119,9 @@ function CreateAssessmentForm({user, setUser}) {
             name="duration"
           />
         </div><br/><br/><br/>
-        <div>
+        {/* <div>
           <input className="inputField" type="submit" value="Preview" />
-        </div>
+        </div> */}
         <div>
           <input
             className="inputField"
