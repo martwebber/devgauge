@@ -4,7 +4,6 @@ function Edit({
   assessmentid,
   titleBody,
   setTitleBody,
-  onHandleUpdate,
   setIsHidden,
   descriptionBody,
   setDescriptionBody,
@@ -13,17 +12,12 @@ function Edit({
   assessmentBody,
   setAssessmentBody
 }) {
-  // function handleChange(event) {
-  //   let updatedTitle = event.target.value;
-  //   setTitleBody(updatedTitle);
-  // }
+
 
   const userInfo = JSON.parse(localStorage.getItem("token"));
-  // console.log(userInfo.user.username)
-  // const userID= userInfo.user.id
+
 
   function handleSubmit(e) {
-    // console.log(e);
     e.preventDefault();
 
     fetch(`/assessments/${assessmentid}`, {
@@ -41,15 +35,8 @@ function Edit({
       }),
     })
       .then((response) => response.json())
-      // .then((data) => {
-      //   console.log(data);
-      //   console.log(commentBody);
-      // });
-
       .then((data) => {
         console.log(data);
-
-        // onHandleUpdate(data)
       });
 
     setIsHidden((isHidden) => !isHidden);
