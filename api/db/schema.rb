@@ -21,15 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 20_221_028_112_829) do
     t.index ['question_id'], name: 'index_answers_on_question_id'
   end
 
-  create_table 'assessment_questions', force: :cascade do |t|
-    t.integer 'assessment_id', null: false
-    t.integer 'question_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['assessment_id'], name: 'index_assessment_questions_on_assessment_id'
-    t.index ['question_id'], name: 'index_assessment_questions_on_question_id'
-  end
-
   create_table 'assessments', force: :cascade do |t|
     t.string 'title'
     t.string 'description'
@@ -44,9 +35,11 @@ ActiveRecord::Schema[7.0].define(version: 20_221_028_112_829) do
   create_table 'questions', force: :cascade do |t|
     t.string 'quiz'
     t.integer 'topic_id', null: false
+    t.integer 'assessment_id', null: false
     t.string 'correct_answer'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.index ['assessment_id'], name: 'index_questions_on_assessment_id'
     t.index ['topic_id'], name: 'index_questions_on_topic_id'
   end
 
@@ -82,9 +75,8 @@ ActiveRecord::Schema[7.0].define(version: 20_221_028_112_829) do
   end
 
   add_foreign_key 'answers', 'questions'
-  add_foreign_key 'assessment_questions', 'assessments'
-  add_foreign_key 'assessment_questions', 'questions'
   add_foreign_key 'assessments', 'users'
+  add_foreign_key 'questions', 'assessments'
   add_foreign_key 'questions', 'topics'
   add_foreign_key 'student_answers', 'answers'
   add_foreign_key 'student_answers', 'assessments'

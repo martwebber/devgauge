@@ -77,7 +77,6 @@ function UpdateAssessement({
       titleBody={titleBody}
       setTitleBody={setTitleBody}
       setIsHidden={setIsHidden}
-      // onHandleUpdate={handleUpdate}
        assessmentid={assessmentid}
        assessment={assessment}
        setAssessment={setAssessment}

@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :users
-  resources :assessment_questions
   resources :student_answers
   resources :answers
   resources :questions
