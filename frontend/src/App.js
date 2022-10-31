@@ -34,7 +34,7 @@ function App() {
 
   // }, [])
 
-  console.log(user)
+  // console.log(user)
 
   return (
     <div className="App">
@@ -45,7 +45,7 @@ function App() {
         <Route path="about"></Route>
         <Route path="assessments" element={<Assessments user={user} />}></Route>
         <Route path="question"></Route>
-        {/* <Route path="tm" ></Route> */}
+        <Route path="tm" ></Route>
         <Route path="assessment"></Route>
         <Route
           path="create-assessment"
@@ -57,7 +57,7 @@ function App() {
         <Route path="signup" element={<SignUp />}></Route>
         <Route path="login" element={<Login setUser={setUser} user={user} />}></Route>
         <Route path="dashboard" element={<Dashboard />}></Route>
-        <Route path="home" element={<HomePage />}></Route>
+        <Route path="home" element={<HomePage />}></Route> 
       </Routes>
     </div>
   );

@@ -18,8 +18,10 @@ function QuestionList(){
         })
     }, [])
     return(
+        
       <div>
-        <p>Display Questions</p>
+
+        <p>List of Questions</p>
         <div>
             {
                 questionList.map((item) => {

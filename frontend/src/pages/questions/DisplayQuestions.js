@@ -1,9 +1,6 @@
 import React from 'react';
 
 function DisplayQuestions({quiz, correct_answer, answer}){
-    // console.log(quiz)
-    // console.log(correct_answer)
-    // console.log(answer)
     const answerlist = answer.map((item) => {
         return(
             <ul>
