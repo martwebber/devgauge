@@ -93,7 +93,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          gem install bunler
+          gem install bundler
           bundle config path vendor/bundle
           bundle install jobs 4 --retry 3
           yarn install --frozen-lockfile
