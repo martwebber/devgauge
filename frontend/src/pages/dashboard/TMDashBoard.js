@@ -4,8 +4,8 @@ import TMCard from "./TMCard"
 
 function TMDashBoard({user}) {
   const[assessment, setAssessment] = useState([])
-
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  
 
 useEffect(() => {
 
@@ -16,9 +16,6 @@ useEffect(() => {
     fetch("/assessments",config)
     .then((res) => res.json())
     .then((data) => {
-        // console.log(config)
-        // console.log(data)
-      
         setAssessment(data)
     })
 }, [])
@@ -27,7 +24,6 @@ console.log(user)
 
   return (
     <div>
-      <h1>TMDashBoard</h1>
       <div style={{ backgroundColor: "lightblue" }}>
         <div className="tmTitle">
           <h1>Our Listed Assessments</h1>
@@ -39,7 +35,7 @@ console.log(user)
           </p>
           <div className="tmCard">
           {assessment.map((item) => {
-            // console.log(item)
+          
             return(
                 <TMCard
                 title= {item.title}
@@ -58,6 +54,8 @@ console.log(user)
             
         </div>
       </div>
+
+      
     </div>
   );
 }

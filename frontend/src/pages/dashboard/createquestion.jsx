@@ -1,6 +1,7 @@
 import React from 'react'
 import CreateNewQuestionForm from '../questions/CreateNewQuestionForm'
-import QuestionsList from '../questions/QuestionsList'
+import QuestionsList from '../questions/QuestionList'
+
 
 
 export const CreateQuestion = () => {
@@ -12,7 +13,7 @@ export const CreateQuestion = () => {
       <CreateNewQuestionForm/>
       </div>
 
-      <QuestionsList/>
+      {/* <QuestionsList/> */}
       
     </div>
     

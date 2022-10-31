@@ -14,7 +14,8 @@ function Edit({
 }) {
 
 
-  const userInfo = JSON.parse(localStorage.getItem("token"));
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  console.log(userInfo)
 
 
   function handleSubmit(e) {
