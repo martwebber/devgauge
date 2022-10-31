@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from "react";
 import "../questions/Question.css";
+import {useNavigate} from "react-router-dom"
 
 function CreateAssessmentForm({user, setUser}) {
+
+  const navigate = useNavigate()
 
   // find the user ID
   const userInfo = JSON.parse(localStorage.getItem("token"));
@@ -50,7 +53,8 @@ function CreateAssessmentForm({user, setUser}) {
       console.log(data)
 
       setAssessment([data, ...assessment])
-      console.log(assessment)
+      navigate("/create-question");
+      // console.log(assessment)
      
 
       setTitle("")
@@ -114,15 +118,6 @@ function CreateAssessmentForm({user, setUser}) {
             value={duration}
             name="duration"
           />
-           {/* <input
-            type="number"
-            className="form-control"
-            placeholder="UserId"
-            style={{ borderColor: "orange" }}
-            onChange={(e) => setUserId(e.target.value)}
-            value={userId}
-            name="userId"
-          /> */}
         </div><br/><br/><br/>
         <div>
           <input className="inputField" type="submit" value="Preview" />

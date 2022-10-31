@@ -20,14 +20,6 @@ function UpdateAssessement({
     setIsHidden((isHidden) => !isHidden);
   }
 
-  // function handleUpdate(updatedTitle) {
-  //   const updateTitle = assessment.map((item) =>
-  //     item.id === updatedTitle.id ? updatedTitle : item
-      
-  //   );
-  //   // console.log(updateTitle)
-  //   setTitleBody(updateTitle);
-  // }
   return (
     <div>
       <div className="editassessment">
@@ -35,7 +27,6 @@ function UpdateAssessement({
       titleBody={titleBody}
       setTitleBody={setTitleBody}
       setIsHidden={setIsHidden}
-      // onHandleUpdate={handleUpdate}
        assessmentid={assessmentid}
        assessment={assessment}
        setAssessment={setAssessment}
