@@ -42,20 +42,22 @@ function QuestionList() {
       
       <p className="assessmentbody">{questionList.description}</p>
       
+      <ol>
       {questionList.questions.map((item) => {
         return (
           <div>
-            <p className= "assessmentquiz">{item.quiz}</p>
+            <li className= "assessmentquiz">{item.quiz}</li>
             <p className= "assessmentCorrectAnswer"> <b>Correct Answer: </b><i>{item.correct_answer}</i></p>
-            <p>Answer: </p>
+            <p>Options: </p>
             <ul>
               {item.answers.map((answer) => {
                 return <li className="assessmentAnswer">{answer.answer_content}</li>;
               })}
-            </ul>
+            </ul><br/>
           </div>
         );
       })}
+      </ol>
     </div>
   );
 }
