@@ -65,12 +65,6 @@ function CreateAssessmentForm({user, setUser}) {
     })
   }
 
-  
-
-  
-
-
-
 
   return (
     <div className="main">

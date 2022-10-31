@@ -119,18 +119,6 @@ function handleSubmit(e){
         <br />
         <br />
         <div>
-          {/* <input
-            className="inputField"
-            type="submit"
-            value="Previous"
-            style={{ backgroundColor: "blue" }}
-          /> */}
-          {/* <input
-            className="inputField"
-            type="submit"
-            value="Next"
-            style={{ backgroundColor: "orange" }}
-          /> */}
         </div>
       </form>
     </div>
