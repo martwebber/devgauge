@@ -100,4 +100,5 @@ jobs:
 
       - name: Test with rspec
         run: |
+          cd api
           rspec
