@@ -23,7 +23,7 @@ console.log(user)
 
 
   return (
-    <div>
+    <div style={{textAlign: "center"}}>
       <div style={{ backgroundColor: "lightblue" }}>
         <div className="tmTitle">
           <h1>Our Listed Assessments</h1>
