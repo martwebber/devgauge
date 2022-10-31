@@ -10,6 +10,7 @@ import QuestionList from "./pages/questions/QuestionList";
 import { Login } from "./pages/login/LoginForm";
 import { SignUp } from "./pages/signup/signupform";
 import { HomePage } from "./pages/home/home";
+import { TopicsHome } from "./pages/topics/index";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -54,6 +55,7 @@ function App() {
         <Route path="login" element={<Login setUser={setUser} user={user} />}></Route>
         <Route path="dashboard" element={<Dashboard />}></Route>
         <Route path="home" element={<HomePage />}></Route>
+        <Route path="topics" element={<TopicsHome />}></Route>
         <Route exact path="/item/:assessmentid" element={<QuestionList />}></Route>
       </Routes>
     </div>
