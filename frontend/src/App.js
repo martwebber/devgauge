@@ -13,21 +13,26 @@ import { HomePage } from "./pages/home/home";
 function App() {
   const [user, setUser] = useState(null);
 
-  const userInfo = JSON.parse(localStorage.getItem("token"));
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   console.log(userInfo)
-  
-    const config = {
-      headers:{
-        Authorization: 'Bearer ' + userInfo.jwt    }
-    }
-  useEffect(() => {
-    fetch("http://localhost:3000/me", config)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data)
-    })
+   
 
-  }, [])
+  /*
+      USEEFFECT CAUSING AN ERROR
+  */
+
+  //   const config = {
+  //     headers:{
+  //       Authorization: 'Bearer ' + userInfo.jwt    }
+  //   }
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/me", config)
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     console.log(data)
+  //   })
+
+  // }, [])
 
   console.log(user)
 

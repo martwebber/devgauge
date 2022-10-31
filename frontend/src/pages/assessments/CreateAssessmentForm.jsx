@@ -4,7 +4,7 @@ import "../questions/Question.css";
 function CreateAssessmentForm({user, setUser}) {
 
   // find the user ID
-  const userInfo = JSON.parse(localStorage.getItem("token"));
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   console.log(userInfo.user.username)
   const userID= userInfo.user.id
 
