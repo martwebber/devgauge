@@ -3,6 +3,7 @@ import React from "react";
 import imagecard from "../images/imagecard.jpg";
 import UpdateAssessement from "../assessments/UpdateAssessement.js";
 import DeleteAssessement from "../assessments/DeleteAssessement.js";
+import { Link } from 'react-router-dom';
 
 function TMCard({
   title,
@@ -44,29 +45,16 @@ function TMCard({
               assessment={assessment}
               setAssessment={setAssessment}
             />
-            {/* <button style={{backgroundColor: "orangered", borderRadius: 15 + "px"}}>Delete</button> */}
           </div>
           <div>
-            <button
-              style={{ backgroundColor: "orange", borderRadius: 15 + "px" }}
-            >
-              Solve Test
-            </button>
+            <Link to={`/item/${assessmentid}`}>View Assessment</Link>
+            
+
+            
           </div>
         </div>
       </div>
     </div>
-   
-            {/* <UpdateAssessement
-              assessmentid={assessmentid}
-              assessment={assessment}
-              setAssessment={setAssessment}
-              duration={duration}
-              assessmentType={assessmentType}
-              title={title}
-              description={description}
-            />
-          */}
     </div>
     
   );

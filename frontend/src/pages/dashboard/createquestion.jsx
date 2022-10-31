@@ -1,6 +1,7 @@
 import React from 'react'
 import CreateNewQuestionForm from '../questions/CreateNewQuestionForm'
-import QuestionsList from '../questions/QuestionsList'
+import QuestionsList from '../questions/QuestionList'
+
 
 
 export const CreateQuestion = () => {
@@ -9,10 +10,10 @@ export const CreateQuestion = () => {
       <div>Create a Question</div>
 <br/><br/>
 <div>
-      {/* <CreateNewQuestionForm/> */}
+      <CreateNewQuestionForm/>
       </div>
 
-      <QuestionsList/>
+      {/* <QuestionsList/> */}
       
     </div>
     
