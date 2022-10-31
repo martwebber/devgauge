@@ -3,7 +3,7 @@ import DisplayQuestions from "./DisplayQuestions"
 
 function QuestionList(){
     const[questionList, setQuestionList]= useState([])
-    const userInfo = JSON.parse(localStorage.getItem("token"));
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
     useEffect(() =>{
         fetch("/questions", {
