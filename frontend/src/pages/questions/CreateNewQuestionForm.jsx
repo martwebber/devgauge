@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { useState, useRef } from "react";
 import {useNavigate} from "react-router-dom"
-// import Questions from "./QuestionsPage"
+// import {QuestionsList} from "./questions"
 
 const userInfo = JSON.parse(localStorage.getItem("userInfo") );
   console.log(userInfo.user.username)
@@ -40,6 +40,7 @@ function handleSubmit(e){
         body: JSON.stringify(postData)
     }).then((r) => {
     if (r.ok) {
+      console.log(r)
         r.json().then(data=>setQuestions([...questions, data ]))
       navigate("/questions");
     } else {
@@ -80,6 +81,7 @@ function handleSubmit(e){
             placeholder="Enter Question"
             onChange={handleChange}
             style={{ borderColor: "orange" }}
+            name="quiz"
 
           />
         </div>
@@ -91,6 +93,7 @@ function handleSubmit(e){
             placeholder="Enter correct Answer"
             onChange={handleChange}
             style={{ borderColor: "orange" }}
+            name="correct_answer"
           />
         </div>
         <div className="col-12">
@@ -100,6 +103,7 @@ function handleSubmit(e){
             placeholder="topic_id"
             onChange={handleChange}
             style={{ borderColor: "orange" }}
+            name="topic_id"
           /> 
           <br />
 
