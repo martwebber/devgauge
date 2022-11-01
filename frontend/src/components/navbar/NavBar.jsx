@@ -7,7 +7,15 @@ import { Link } from 'react-router-dom';
 
 import './navbar.css'
 
-export const NavBar = () => {
+export const NavBar = ({user, setUser}) => {
+ 
+
+  function handleLogoutClick() {
+    setUser(null)
+    localStorage.removeItem("userInfo")
+  }
+
+
     return (
     <Navbar className='navbar'expand="lg">
     <Container>
@@ -27,6 +35,9 @@ export const NavBar = () => {
 
         <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
         <Nav.Link as={Link} to="/login"className='login-btn' >Login  </Nav.Link>
+        <button variant="outline" className='login-btn' onClick={handleLogoutClick}>
+          Logout
+        </button>
           </Nav>
           <Form className="d-flex">
             <Form.Control

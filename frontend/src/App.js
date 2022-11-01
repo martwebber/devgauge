@@ -16,12 +16,12 @@ import Footer from "./components/footer/footer";
 function App() {
   const [user, setUser] = useState(null);
 
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const userInfo = localStorage.getItem("userInfo");
   console.log(userInfo)
   
     const config = {
       headers:{
-        Authorization: 'Bearer ' + userInfo.jwt}
+        Authorization: 'Bearer ' + userInfo}
     }
   useEffect(() => {
     fetch("http://localhost:3000/me", config)
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar user={user} setUser={setUser} />
       <Routes>
 
         <Route path="/"></Route>

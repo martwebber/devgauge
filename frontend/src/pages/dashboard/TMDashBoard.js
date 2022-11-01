@@ -13,14 +13,14 @@ function TMDashBoard({user , setUser}) {
   
     }
   const[assessment, setAssessment] = useState([])
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const userInfo = (localStorage.getItem("userInfo"));
   
 
 useEffect(() => {
 
   const config = {
     headers:{
-      Authorization: 'Bearer ' + userInfo.jwt    }
+      Authorization: 'Bearer ' + userInfo}
   }
     fetch("/assessments",config)
     .then((res) => res.json())
@@ -28,7 +28,7 @@ useEffect(() => {
         setAssessment(data)
     })
 }, [])
-console.log(user)
+// console.log(user)
 
 
   return (

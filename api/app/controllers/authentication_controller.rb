@@ -14,4 +14,6 @@ class AuthenticationController < ApplicationController
       render json: { message: 'Invalid email or password' }, status: :unauthorized
     end
   end
+
+ 
 end
