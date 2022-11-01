@@ -68,6 +68,8 @@ function QuestionList() {
       </ol>
       <div> 
         <button onClick={() => handleClick("/assessments")} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Back</button>
+
+        <button onClick={() => handleClick("/create-question")} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Add Question</button>
       </div>
      
     </div>
