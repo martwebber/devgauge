@@ -1,10 +1,14 @@
 * {
-    /* margin: 10; */
-    /* box-sizing:border-box ; */
+    
+    /* margin: 0;  */
+    /* box-sizing:border-box ;  */
 }
 
 .container{
     background-color: #F3F7FA;
+    /* display: flex; */
+    /* flex-direction: column; */
+    
   
     
 }
@@ -13,26 +17,51 @@
     height: 100%;
     width: 100%;
     margin-left: 12px;
+    /* margin-bottom: 0px; */
     
 }
 
 
 .student{
+    display: flex;
     background-color:#025397 ;
     color:#ffff ;
-    padding-bottom: 70px;
-    padding-top: 60px;
-}
-.tm{
-    background-color:#FF9F1B ;
-    color: #ffff;
-    padding-bottom: 70px;
+    padding-bottom: 60px;
     padding-top: 60px;
     
+    flex-direction: column;
+    align-items: center;
+    
+}
+.tm{
+    display: flex;
+    background-color:#FF9F1B ;
+    color: #ffff;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    flex-direction: column;
+    align-items: center;
+    /* margin-left: -120px; */
+      
 }
 
 .intro {
     padding-top: 10%;
+    padding-bottom: 20px;
    
     justify-content: left;
+}
+
+.hire {
+    background-color: #FF9F1B;
+}
+
+.hiring {
+    background-color: #025397;
+}
+
+.h-main{
+    
+    display: flex;
+  
 }
