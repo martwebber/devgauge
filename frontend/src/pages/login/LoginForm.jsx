@@ -45,7 +45,7 @@ export const Login = ({ setUser, user }) => {
         })} */}
           <div>
             <div>
-              <label className="title">Email address</label>
+              {/* <label className="title">Email address</label> */}
             </div>
 
             <div>
@@ -61,7 +61,7 @@ export const Login = ({ setUser, user }) => {
 
           <div>
             <div>
-              <label className="title">Password</label>
+              {/* <label className="title">Password</label> */}
             </div>
             <div>
               <input
@@ -75,9 +75,16 @@ export const Login = ({ setUser, user }) => {
           </div>
           <br/>
 
-          <Button id="login-button" type="submit">
+          {/* <Button id="login-button" type="submit">
             Login
-          </Button>
+          </Button> */}
+          <div>
+          <button id="login-button" type="submit" className="loginButton">
+            Login
+          </button>
+          
+          </div>
+          
           </div>
         </form>
      

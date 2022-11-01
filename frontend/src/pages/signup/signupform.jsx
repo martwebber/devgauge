@@ -44,7 +44,7 @@ export const SignUp = () => {
         <div className="login-form">
           <div>
             <div>
-              <label className="title">First Name</label>
+              {/* <label className="title">First Name</label> */}
             </div>
             <div>
               <input
@@ -55,11 +55,11 @@ export const SignUp = () => {
                 onChange={handleChange}
               />
             </div>
-          </div>
+          </div><br/>
 
           <div>
             <div>
-              <label className="title">Last Name</label>
+              {/* <label className="title">Last Name</label> */}
             </div>
             <div>
               <input
@@ -71,9 +71,9 @@ export const SignUp = () => {
               />
             </div>
           </div>
-          <div>
+          <div><br/>
             <div>
-              <label className="title">Usename</label>
+              {/* <label className="title">Usename</label> */}
             </div>
             <div>
               <input
@@ -84,10 +84,10 @@ export const SignUp = () => {
                 onChange={handleChange}
               />
             </div>
-          </div>
+          </div><br/>
           <div>
             <div>
-              <label className="title">Email address</label>
+              {/* <label className="title">Email address</label> */}
             </div>
             <div>
               <input
@@ -98,10 +98,10 @@ export const SignUp = () => {
                 onChange={handleChange}
               />
             </div>
-          </div>
+          </div><br/>
           <div>
             <div>
-              <label className="title">Password</label>
+              {/* <label className="title">Password</label> */}
             </div>
             <div>
               <input
@@ -115,9 +115,11 @@ export const SignUp = () => {
           </div>
           <br/>
           <div>
-          <Button id="signup-button" type="submit">
+          {/* <Button id="signup-button" type="submit">
           Create an account
-        </Button>
+        </Button> */}
+
+        <button type="submit" className="button-1" value="Create an account">Create an account</button>
           </div>
       
 

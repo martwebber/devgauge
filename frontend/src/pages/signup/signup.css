@@ -13,7 +13,8 @@ input{
     box-shadow: inset 0px 0px 25px 0px silver;
     outline: none;
     background-color: #fff;
-    border-color: orange
+    border-color: orange;
+    /* text-align: center; */
   }
   .name{
     padding-left: 10px;
@@ -28,4 +29,13 @@ input{
   }
   .title{
     color: white
+  }
+
+  .button-1{
+    width: 300px;
+    height: 50px;
+    border-radius: 60px;
+    background-color: orange;
+    color: white;
+   
   }
