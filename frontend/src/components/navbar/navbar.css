@@ -26,9 +26,9 @@
     
 }
 .container .nav-link:hover {
-    font-size:smaller;
-    color: #F15524;
-    background-color: #F3F7FA;
+    font-size:smaller !important;
+    color: #F15524 !important;
+    background-color: #F3F7FA !important;
 }
 
 .container .d-flex{
@@ -57,7 +57,7 @@
 
 .container .login-btn{
     background-color: #FF9F1B;
-    margin-right: 240px;
+    /* margin-right: 00px; */
     color: #ffff;
 
 }
@@ -74,6 +74,6 @@
 .d-flex .me-2{
     height: 100% !important;
     width: 90px;
-    margin-left: 100%;
+    margin-left: 80%;
     /* margin-right: 40px; */
 }
