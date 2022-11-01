@@ -9,8 +9,8 @@ import { useEffect } from "react";
 // import {QuestionsList} from "./questions"
 
 const userInfo = JSON.parse(localStorage.getItem("userInfo") );
-  console.log(userInfo.user.username)
-  const userID= userInfo.user.id
+  // console.log(userInfo.user.username)
+  // const userID= userInfo.user.id
 
 
 function CreateNewQuestionForm({questions, setQuestions}) {
