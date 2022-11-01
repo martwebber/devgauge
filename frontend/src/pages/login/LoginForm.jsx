@@ -7,7 +7,7 @@ import "./login.css";
 
 export const Login = ({ setUser, user }) => {
   const [inputdata, handleChange] = useForm();
-  // const [errors, setErrors] = useState([]);
+   const [errors, setErrors] = useState([]);
 
   let navigate = useNavigate();
 
@@ -41,9 +41,9 @@ export const Login = ({ setUser, user }) => {
       <div className="body">
         <form onSubmit={handleSubmit}>
         <div className="login-form">
-        {/* {errors.map((error) => {
+        {errors.map((error) => {
           return  <p  style={{color: "red"}} key={error}>{error}</p>
-        })} */}
+        })}
           <div>
             <div>
               {/* <label className="title">Email address</label> */}
