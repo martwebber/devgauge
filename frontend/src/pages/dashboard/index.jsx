@@ -1,20 +1,22 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import './index.css';
-import '../assessments';
+import {Assessments} from '../assessments';
 import 'react-router-dom';
+// import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
 
 
 
 export const Dashboard = ({user}) => {
   console.log(user)
   return (
-    
-    <div className='container'>
-      <div>
-        <h1>Dashboard</h1>
-      
-      </div>
+    <section id='dashboard'>
+        <nav>
+       
         <div className='side-menu'>
           
         <Button className='button-side' href="#">Profile</Button> 
@@ -23,10 +25,48 @@ export const Dashboard = ({user}) => {
         <Button className='button-side' href="#">LeaderBoard</Button>
         <Button className='button-side' href="#">Grades</Button>
 
-        <Button className='button-side' href="#../login">Log Out</Button>
+        <Button className='button-side' href="../login">Log Out</Button>
       
         </div>
-    </div>
+
+        </nav>
+
+        <header>
+        <div>
+        <h1>Dashboard</h1>
+      
+      </div>
+          
+
+        </header>
+
+        <main>
+          <div>
+        <Row>
+        <Col>Profile</Col>
+        <Col>  
+        <div >
+
+<Assessments />
+</div></Col>
+      </Row>
+      <Row>
+        <Col>Grades</Col>
+        <Col>Leaderboard </Col>
+        <Col>Badges</Col>
+      </Row>
+          </div>
+        
+
+        </main>
+    </section>
+
+
+    
+    
+    
+      
+    
     
 
 

@@ -32,6 +32,7 @@ console.log(user)
 
 
   return (
+
     <div style={{textAlign: "center"}}>
      <div className= "homepage">
      <div style={{textAlign: "right"}}> 
