@@ -11,7 +11,7 @@ export const NavBar = () => {
     return (
     <Navbar className='navbar'expand="lg">
     <Container>
-      <Navbar.Brand as={Link} to="/" className='main'>devGauge</Navbar.Brand>
+      <Navbar.Brand as={Link} to="/home" className='main'>devGauge</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -23,9 +23,8 @@ export const NavBar = () => {
         <Nav.Link as={Link} to="/assessments">Assessments</Nav.Link>
         <Nav.Link as={Link} to="/tm">TM DashBoard</Nav.Link>
         <Nav.Link as={Link} to="assessments/create-assessment">Create Assessment</Nav.Link>
-
         <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
-        <Nav.Link as={Link} to="/login"className='login-btn' >Login  </Nav.Link>
+        <Nav.Link as={Link} to="/login"className='login-btn' >Login  </Nav.Link> 
           </Nav>
           <Form className="d-flex">
             <Form.Control

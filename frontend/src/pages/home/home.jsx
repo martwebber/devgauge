@@ -12,7 +12,7 @@ import './home.css';
 export const HomePage = () => {
     return (
         <div className="h-main">
-            <Container>
+    <Container>
       <Row>
         <Col sm={5} className="intro">
             <h1>Matching developers with great companies.</h1><br />
@@ -30,19 +30,19 @@ export const HomePage = () => {
         <Col sm className="tm">
             <h3>For Team Manager</h3>
             <p>We are the market-leading technical interview platform to identify and hire developers wherever they are.</p>
-            <Button href="../signup">Start Hiring</Button>
+            <Button className="hiring" href="../signup">Start Hiring</Button>
 
         </Col>
         <Col sm className="student">
             <h3>For Team Students</h3>
             <p>Join over 18 million developers, practice coding skills, prepare for Interviews and get hired.</p>
-            <Button href="../signup">Get Hired</Button>
+            <Button className="hire" href="../signup">Get Hired</Button>
 
         </Col>
         
       </Row>
     </Container>
-            <div className="container1">
+            {/* <div className="container1">
                 
                 <div className="h-one">
         
@@ -59,7 +59,7 @@ export const HomePage = () => {
                 <div className="h-four">
 
                 </div>
-            </div>
+            </div> */}
         
         
         </div>
