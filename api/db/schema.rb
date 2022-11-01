@@ -73,10 +73,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_28_112829) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "questions", "assessments"
-  add_foreign_key "assessment_questions", "assessments"
-  add_foreign_key "assessment_questions", "questions"
   add_foreign_key "assessments", "users"
+  add_foreign_key "questions", "assessments"
   add_foreign_key "questions", "topics"
   add_foreign_key "student_answers", "answers"
   add_foreign_key "student_answers", "assessments"

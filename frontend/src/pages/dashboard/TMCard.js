@@ -47,7 +47,7 @@ function TMCard({
             />
           </div>
           <div>
-            <Link to={`/item/${assessmentid}`}>View Assessment</Link>
+            <Link to={`/assessments/${assessmentid}`}>View Assessment</Link>
             
 
             
