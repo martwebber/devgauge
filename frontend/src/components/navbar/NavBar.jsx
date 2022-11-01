@@ -22,8 +22,7 @@ export const NavBar = () => {
         <Nav.Link as={Link} to="/home">Home</Nav.Link>
         <Nav.Link as={Link} to="/assessments">Assessments</Nav.Link>
         <Nav.Link as={Link} to="/tm">TM DashBoard</Nav.Link>
-        <Nav.Link as={Link} to="/create-question">Create Question</Nav.Link>
-        <Nav.Link as={Link} to="/create-assessment">Create Assessment</Nav.Link>
+        <Nav.Link as={Link} to="assessments/create-assessment">Create Assessment</Nav.Link>
 
         <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
         <Nav.Link as={Link} to="/login"className='login-btn' >Login  </Nav.Link>

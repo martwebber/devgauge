@@ -48,7 +48,7 @@ function App() {
         <Route path="tm" ></Route>
         <Route path="assessment"></Route>
         <Route
-          path="create-assessment"
+          path="assessments/create-assessment"
           element={<CreateAssessment user={user} setUser={setUser} />}
         ></Route>
         <Route path="/assessments/:assessmentid/create-question" element={<CreateQuestion />}></Route>

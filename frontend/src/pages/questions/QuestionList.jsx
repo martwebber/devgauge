@@ -12,7 +12,7 @@ function QuestionList() {
   
     }
   const params = useParams();
-  console.log(params);
+  console.log('params',params);
   const [questionList, setQuestionList] = useState({
     title: "",
     description: "",
@@ -69,7 +69,7 @@ function QuestionList() {
       <div> 
         <button onClick={() => handleClick("/assessments")} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Back</button>
 
-        <button onClick={() => handleClick("/create-question")} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Add Question</button>
+        <button onClick={() => handleClick(`/assessments/${params.assessmentid}/create-question`)} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Add Question</button>
       </div>
      
     </div>
