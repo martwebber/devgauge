@@ -12,7 +12,7 @@ import './home.css';
 export const HomePage = () => {
     return (
         <div className="h-main">
-    <Container>
+    <Container fluid>
       <Row>
         <Col sm={5} className="intro">
             <h1>Matching developers with great companies.</h1><br />
