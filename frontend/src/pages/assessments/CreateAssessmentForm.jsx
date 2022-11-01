@@ -17,7 +17,7 @@ function CreateAssessmentForm({user, setUser}) {
   console.log(userInfo.user.username)
   const userID= userInfo.user.id
 
-  const[assessment, setAssessment] = useState([])
+  const [assessment, setAssessment] = useState([])
  
   const[title, setTitle]=useState("")
   const[description, setDescription]=useState("")
@@ -54,14 +54,10 @@ function CreateAssessmentForm({user, setUser}) {
     //   } )
     .then((res) => res.json())
     .then((data) => {
-      localStorage.setItem("jwt", data.jwt);
-      console.log(assessment)
       console.log(data)
 
       setAssessment([data, ...assessment])
-      navigate("/create-question");
-      // console.log(assessment)
-     
+      navigate(`/assessments/${data.id}`);     
 
       setTitle("")
       setDescription("")

@@ -11,6 +11,7 @@ import { Login } from "./pages/login/LoginForm";
 import { SignUp } from "./pages/signup/signupform";
 import { HomePage } from "./pages/home/home";
 import { TopicsHome } from "./pages/topics/index";
+import Footer from "./components/footer/footer";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,6 +41,8 @@ function App() {
 
         <Route path="/"></Route>
         <Route path="about"></Route>
+        {/* <Route exact path="/assessments/:id" element={<QuestionList />}></Route> */}
+        <Route exact path="/assessments/:assessmentid" element={<QuestionList />}></Route>
         <Route path="assessments" element={<Assessments user={user} />}></Route>
         <Route path="question"></Route>
         <Route path="tm" ></Route>
@@ -48,7 +51,7 @@ function App() {
           path="create-assessment"
           element={<CreateAssessment user={user} setUser={setUser} />}
         ></Route>
-        <Route path="create-question" element={<CreateQuestion />}></Route>
+        <Route path="/assessments/:assessmentid/create-question" element={<CreateQuestion />}></Route>
         <Route path="blog"></Route>
         <Route path="contacts"></Route>
         <Route path="signup" element={<SignUp />}></Route>
@@ -56,8 +59,8 @@ function App() {
         <Route path="dashboard" element={<Dashboard />}></Route>
         <Route path="home" element={<HomePage />}></Route>
         <Route path="topics" element={<TopicsHome />}></Route>
-        <Route exact path="/item/:assessmentid" element={<QuestionList />}></Route>
       </Routes>
+      <Footer/>
     </div>
   );
 }
