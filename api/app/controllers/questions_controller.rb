@@ -54,13 +54,12 @@ class QuestionsController < ApplicationController
     end
   end
 
-  private
+    private
+    def update_quiz
+        params.permit(:quiz, :correct_answer)
+    end
 
-  def update_quiz
-    params.permit(:quiz, :correct_answer)
-  end
-
-  def params_quiz
-    params.permit(:quiz, :correct_answer, :topic_id)
-  end
+    def params_quiz
+        params.permit(:quiz, :correct_answer, :topic_id, :assessment_id)
+    end
 end

@@ -3,6 +3,12 @@ import "../questions/Question.css";
 import {useNavigate} from "react-router-dom"
 
 function CreateAssessmentForm({user, setUser}) {
+  const history = useNavigate();
+
+    function handleClick (path){
+      history(path)
+  
+    }
 
   const navigate = useNavigate()
 
@@ -98,6 +104,13 @@ function CreateAssessmentForm({user, setUser}) {
           />
         </div>
         <div className="col-md-6">
+        {/* <div>
+          <select className="form-select">
+            <option >Select Assessment Type</option>
+            <option>Trial Assessment</option>
+            <option>Actual Assessment</option>
+          </select>
+        </div> */}
           <input
             type="text"
             className="form-control"
@@ -120,7 +133,7 @@ function CreateAssessmentForm({user, setUser}) {
           />
         </div><br/><br/><br/>
         <div>
-          <input className="inputField" type="submit" value="Preview" />
+          <input className="inputField" type="submit"  onClick={() => handleClick("/assessments")} value="Back" />
         </div>
         <div>
           <input
@@ -130,6 +143,7 @@ function CreateAssessmentForm({user, setUser}) {
             value="Create"
           />
         </div>
+        
       </form>
     </div>
   );
