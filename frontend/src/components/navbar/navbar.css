@@ -29,6 +29,11 @@
 }
 .container .nav-link:hover {
     font-size:smaller;
+    color: #F3F7FA;
+    background-color: #F15524;
+}
+.container .nav-link ::selection {
+    font-size:smaller;
     color: #F15524;
     background-color: #111827;
 }
