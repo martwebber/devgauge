@@ -36,7 +36,7 @@ console.log(user)
     <div style={{textAlign: "center"}}>
      <div className= "homepage">
      <div style={{textAlign: "right"}}> 
-        <button onClick={() => handleClick("/create-assessment")} style={{backgroundColor: "orange", borderRadius: 15 + "px", padding: "15px", fontSize: "20px"}} >Create Assessment</button>
+        <button onClick={() => handleClick("/assessments/create-assessment")} style={{backgroundColor: "orange", borderRadius: 15 + "px", padding: "15px", fontSize: "20px"}} >Create Assessment</button>
       </div>
       {/* <p className="paragraph">We are the market-leading technical interview platform to identify and hire developers</p> */}
       </div>

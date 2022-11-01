@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col } from "react-bootstrap";
 import Button from "react-bootstrap/esm/Button";
 import Form from "react-bootstrap/Form";
@@ -8,31 +8,41 @@ import "./signup.css";
 export const SignUp = () => {
   const [inputdata, handleChange] = useForm();
   let navigate = useNavigate();
+  // const [userType, setUserType] = useState({
+  //   userType
+  // })
+  
 
-  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
 
-    fetch("/users", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        first_name: inputdata.firstname,
-        last_name: inputdata.lastname,
-        username: inputdata.username,
-        email: inputdata.email,
-        password: inputdata.password,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        localStorage.setItem("userInfo", JSON.stringify(data));
-        navigate("/");
-      });
+    if(inputdata.user_type === '1'){
+      alert('tm')
+    }else{
+      alert('student')
+    }
+    // fetch("/users", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     first_name: inputdata.firstname,
+    //     last_name: inputdata.lastname,
+    //     username: inputdata.username,
+    //     email: inputdata.email,
+    //     user_type:parseInt(inputdata.user_type),
+    //     password: inputdata.password,
+    //   }),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     localStorage.setItem("userInfo", JSON.stringify(data));
+    //     navigate("/");
+    //   });
   };
+
   console.log(inputdata);
   return (
     <div className="body">
@@ -42,10 +52,15 @@ export const SignUp = () => {
 
       <form onSubmit={handleSubmit}>
         <div className="login-form">
-          <div>
+        <div>
             <div>
-              {/* <label className="title">First Name</label> */}
+            <select name="user_type" value={inputdata.user_type} onChange={handleChange} id="form-select">
+  <option value='0'>Student</option>
+  <option value='1'>Technical Mentor</option>
+   </select>
             </div>
+          </div><br/>
+          <div>
             <div>
               <input
                 className="name"

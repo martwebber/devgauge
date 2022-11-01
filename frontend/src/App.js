@@ -12,6 +12,7 @@ import { SignUp } from "./pages/signup/signupform";
 import { HomePage } from "./pages/home/home";
 import { TopicsHome } from "./pages/topics/index";
 import Footer from "./components/footer/footer";
+import { SignUpLogin } from "./pages/signup-login/signup-login";
 
 function App() {
   const [user, setUser] = useState(null);
