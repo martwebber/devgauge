@@ -74,6 +74,6 @@
 .d-flex .me-2{
     height: 100% !important;
     width: 90px;
-    margin-left: -20px;
+    margin-left: 100%;
     /* margin-right: 40px; */
 }

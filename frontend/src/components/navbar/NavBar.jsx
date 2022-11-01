@@ -31,7 +31,7 @@ export const NavBar = () => {
           <Form className="d-flex">
             <Form.Control
               type="search"
-              placeholder="find"
+              placeholder="search"
               className="me-2"
               aria-label="Search"
             />
