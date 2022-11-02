@@ -7,6 +7,10 @@ export const TakeAssessment = ({user}) => {
       <div>
       take assessment
       </div>
+      <div>
+     Take assessment
+      
+      </div>
       
       
     </div>

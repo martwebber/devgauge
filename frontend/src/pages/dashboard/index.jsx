@@ -45,10 +45,11 @@ export const Dashboard = ({user}) => {
         <Row>
         <Col>Profile</Col>
         <Col>  
-        <div >
-
-<Assessments />
-</div></Col>
+        <div className='ass' >
+            Assessments
+          <Assessments />
+      </div>
+      </Col>
       </Row>
       <Row>
         <Col>Grades</Col>
