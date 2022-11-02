@@ -18,28 +18,11 @@ function App() {
   const [user, setUser] = useState(null);
 
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  console.log(userInfo)
-  
-    const config = {
-      headers:{
-        Authorization: 'Bearer ' + userInfo.jwt}
-    }
-  useEffect(() => {
-    fetch("http://localhost:3000/me", config)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data)
-    })
 
-  }, [])
-
- 
-
-  // console.log(user)
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar setUser={setUser}/>
       <Routes>
 
         <Route path="/"></Route>
@@ -57,6 +40,7 @@ function App() {
         <Route path="/assessments/:assessmentid/create-question" element={<CreateQuestion />}></Route>
         <Route path="blog"></Route>
         <Route path="contacts"></Route>
+
         <Route path="signup" element={<SignUp />}></Route>
         <Route path="login" element={<Login setUser={setUser} user={user} />}></Route>
         <Route path="dashboard" element={<Dashboard />}></Route>
