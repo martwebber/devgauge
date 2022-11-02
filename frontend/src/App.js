@@ -12,25 +12,26 @@ import { SignUp } from "./pages/signup/signupform";
 import { HomePage } from "./pages/home/home";
 import { TopicsHome } from "./pages/topics/index";
 import Footer from "./components/footer/footer";
+import {TakeAssessment } from "./pages/assessments/TakeAssessment";
 
 function App() {
   const [user, setUser] = useState(null);
 
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  console.log(userInfo)
+  // const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  // console.log(userInfo)
   
-    const config = {
-      headers:{
-        Authorization: 'Bearer ' + userInfo.jwt}
-    }
-  useEffect(() => {
-    fetch("http://localhost:3000/me", config)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data)
-    })
+  //   const config = {
+  //     headers:{
+  //       Authorization: 'Bearer ' + userInfo.jwt}
+  //   }
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/me", config)
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     console.log(data)
+  //   })
 
-  }, [])
+  // }, [])
 
  
 
@@ -61,6 +62,8 @@ function App() {
         <Route path="dashboard" element={<Dashboard />}></Route>
         <Route path="home" element={<HomePage />}></Route>
         <Route path="topics" element={<TopicsHome />}></Route>
+        <Route path="takeassessment" element={<TakeAssessment />}></Route>
+
       </Routes>
       <Footer/>
     </div>
