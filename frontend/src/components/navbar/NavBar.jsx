@@ -16,7 +16,7 @@ export const NavBar = ({setUser}) => {
   }
     return (
     <Navbar className='navbar'expand="lg">
-    <Container>
+    <Container fluid className='container'>
       <Navbar.Brand as={Link} to="/home" className='main'>devGauge</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="navbarScroll">
@@ -37,7 +37,7 @@ export const NavBar = ({setUser}) => {
           <Form className="d-flex">
             <Form.Control
               type="search"
-              placeholder="Search"
+              placeholder="search"
               className="me-2"
               aria-label="Search"
             />

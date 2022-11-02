@@ -13,7 +13,7 @@
     
 }
 
-.container .hero-img{
+.hero-img{
     height: 100%;
     width: 100%;
     margin-left: 12px;
@@ -48,8 +48,8 @@
 .intro {
     padding-top: 10%;
     padding-bottom: 20px;
-   
-    justify-content: left;
+   padding-left: 31px;
+    /* justify-content: left; */
 }
 
 .hire {
@@ -59,9 +59,9 @@
 .hiring {
     background-color: #025397;
 }
-
+/* 
 .h-main{
     
     display: flex;
   
-}
+} */

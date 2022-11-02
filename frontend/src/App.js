@@ -12,13 +12,9 @@ import { SignUp } from "./pages/signup/signupform";
 import { HomePage } from "./pages/home/home";
 import { TopicsHome } from "./pages/topics/index";
 import Footer from "./components/footer/footer";
-import { SignUpLogin } from "./pages/signup-login/signup-login";
 
 function App() {
   const [user, setUser] = useState(null);
-
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-
 
   return (
     <div className="App">
@@ -46,6 +42,8 @@ function App() {
         <Route path="dashboard" element={<Dashboard />}></Route>
         <Route path="home" element={<HomePage />}></Route>
         <Route path="topics" element={<TopicsHome />}></Route>
+        <Route path="takeassessment" element={<TakeAssessment />}></Route>
+
       </Routes>
       <Footer/>
     </div>
