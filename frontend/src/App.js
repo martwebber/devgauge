@@ -42,7 +42,7 @@ function App() {
         <Route path="dashboard" element={<Dashboard />}></Route>
         <Route path="home" element={<HomePage />}></Route>
         <Route path="topics" element={<TopicsHome />}></Route>
-        <Route path="takeassessment" element={<TakeAssessment />}></Route>
+        {/* <Route path="takeassessment" element={<TakeAssessment />}></Route> */}
 
       </Routes>
       <Footer/>

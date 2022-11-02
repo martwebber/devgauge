@@ -66,8 +66,11 @@ console.log('question data',postData)
     }).then((r) => {
     if (r.ok) {
       console.log(r)
-        r.json().then(data=>setPoastData(data))
-     // navigate("/questions");
+        r.json().then(data=>
+          {
+            setPoastData(data)
+            navigate(`/assessments/${params.assessmentid}`);     
+          })
     } else {
       r.json().then((err) => setErrors(err.errors));
     }
@@ -123,15 +126,6 @@ const topicsList = topics?.map((topic)=>(
           />
         </div>
         <div className="col-12">
-          {/* <input
-            type="number"
-            className="form-control"
-            placeholder="assessment_id"
-            onChange={handleChange}
-            style={{ borderColor: "orange" }}
-            name="assessment_id"
-          /> 
-          <br /> */}
 
           <input
             className="inputField"

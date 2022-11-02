@@ -2,45 +2,37 @@ import React, { useState } from "react";
 import { Col } from "react-bootstrap";
 import Button from "react-bootstrap/esm/Button";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import "./signup.css";
 export const SignUp = () => {
   const [inputdata, handleChange] = useForm();
   let navigate = useNavigate();
-  // const [userType, setUserType] = useState({
-  //   userType
-  // })
   
 
 const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(inputdata.user_type === '1'){
-      alert('tm')
-    }else{
-      alert('student')
-    }
-    // fetch("/users", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     first_name: inputdata.firstname,
-    //     last_name: inputdata.lastname,
-    //     username: inputdata.username,
-    //     email: inputdata.email,
-    //     user_type:parseInt(inputdata.user_type),
-    //     password: inputdata.password,
-    //   }),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     localStorage.setItem("userInfo", JSON.stringify(data));
-    //     navigate("/");
-    //   });
+    fetch("/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        first_name: inputdata.firstname,
+        last_name: inputdata.lastname,
+        username: inputdata.username,
+        email: inputdata.email,
+        user_type:parseInt(inputdata.user_type),
+        password: inputdata.password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        navigate("/");
+      });
   };
 
   console.log(inputdata);
@@ -49,9 +41,10 @@ const handleSubmit = (e) => {
       {/* <div>
                 <h2>Practice coding, prepare for interviews, and get hired.</h2>
             </div> */}
-
       <form onSubmit={handleSubmit}>
         <div className="login-form">
+        <h1 className="form-title">Create an account</h1>
+        <br/>
         <div>
             <div>
             <select name="user_type" value={inputdata.user_type} onChange={handleChange} id="form-select">
@@ -136,7 +129,9 @@ const handleSubmit = (e) => {
 
         <button type="submit" className="button-1" value="Create an account">Create an account</button>
           </div>
-      
+      <br/>
+      <p className="signup-login-link">Already have an account? <Link to={'/login'}>Log in here</Link></p>
+
 
         
         </div>

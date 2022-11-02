@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { Form, Button, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Form, Button, Col, Nav } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import "./login.css";
 
@@ -41,6 +41,7 @@ export const Login = ({ setUser, user }) => {
       <div className="body">
         <form onSubmit={handleSubmit}>
         <div className="login-form">
+        <h1 className="form-title">Login</h1>
         {errors.map((error) => {
           return  <p  style={{color: "red"}} key={error}>{error}</p>
         })}
@@ -83,7 +84,10 @@ export const Login = ({ setUser, user }) => {
           <button id="login-button" type="submit" className="loginButton">
             Login
           </button>
-          
+          <br/>
+          <p className="signup-login-link">Don't have an account? <Link to={'/signup'}>Sign up here</Link>
+ 
+</p>
           </div>
           
           </div>
