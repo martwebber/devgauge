@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Question.css";
 import { useParams } from "react-router-dom";
 import {useNavigate} from "react-router-dom"
+import CreateNewQuestionForm from "./CreateNewQuestionForm";
 
 function QuestionList() {
 
@@ -12,7 +13,7 @@ function QuestionList() {
   
     }
   const params = useParams();
-  console.log(params);
+  console.log('params',params);
   const [questionList, setQuestionList] = useState({
     title: "",
     description: "",
@@ -39,6 +40,19 @@ function QuestionList() {
         setQuestionList(data);
       });
   }, []);
+
+
+  const [hide, setHide] = React.useState(true)
+
+  const toggleElements = () =>{
+    setHide((hide)=>!hide)
+    console.log(hide,hideClass)
+
+  }
+
+  const hideClass = hide? 'hidden' :'';
+
+
   return (
     <div className="listQuestions">
       <h1 className="assessmenttitle">{questionList.title}</h1>
@@ -69,9 +83,12 @@ function QuestionList() {
       <div> 
         <button onClick={() => handleClick("/assessments")} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Back</button>
 
-        <button onClick={() => handleClick("/create-question")} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Add Question</button>
+        <button onClick={toggleElements} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Add Question</button>
       </div>
-     
+
+<div className={hideClass}>
+  <CreateNewQuestionForm/>
+</div>
     </div>
   );
 }

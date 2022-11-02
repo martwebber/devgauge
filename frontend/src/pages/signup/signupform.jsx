@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col } from "react-bootstrap";
 import Button from "react-bootstrap/esm/Button";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import "./signup.css";
 export const SignUp = () => {
   const [inputdata, handleChange] = useForm();
   let navigate = useNavigate();
+  
 
-  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
 
     fetch("/users", {
       method: "POST",
@@ -23,6 +23,7 @@ export const SignUp = () => {
         last_name: inputdata.lastname,
         username: inputdata.username,
         email: inputdata.email,
+        user_type:parseInt(inputdata.user_type),
         password: inputdata.password,
       }),
     })
@@ -33,19 +34,26 @@ export const SignUp = () => {
         navigate("/");
       });
   };
+
   console.log(inputdata);
   return (
     <div className="body">
       {/* <div>
                 <h2>Practice coding, prepare for interviews, and get hired.</h2>
             </div> */}
-
       <form onSubmit={handleSubmit}>
         <div className="login-form">
-          <div>
+        <h1 className="form-title">Create an account</h1>
+        <br/>
+        <div>
             <div>
-              {/* <label className="title">First Name</label> */}
+            <select name="user_type" value={inputdata.user_type} onChange={handleChange} id="form-select">
+  <option value='0'>Student</option>
+  <option value='1'>Technical Mentor</option>
+   </select>
             </div>
+          </div><br/>
+          <div>
             <div>
               <input
                 className="name"
@@ -121,7 +129,9 @@ export const SignUp = () => {
 
         <button type="submit" className="button-1" value="Create an account">Create an account</button>
           </div>
-      
+      <br/>
+      <p className="signup-login-link">Already have an account? <Link to={'/login'}>Log in here</Link></p>
+
 
         
         </div>

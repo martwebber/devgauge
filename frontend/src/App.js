@@ -12,34 +12,13 @@ import { SignUp } from "./pages/signup/signupform";
 import { HomePage } from "./pages/home/home";
 import { TopicsHome } from "./pages/topics/index";
 import Footer from "./components/footer/footer";
-import {TakeAssessment } from "./pages/assessments/TakeAssessment";
 
 function App() {
   const [user, setUser] = useState(null);
 
-  // const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  // console.log(userInfo)
-  
-  //   const config = {
-  //     headers:{
-  //       Authorization: 'Bearer ' + userInfo.jwt}
-  //   }
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/me", config)
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     console.log(data)
-  //   })
-
-  // }, [])
-
- 
-
-  // console.log(user)
-
   return (
     <div className="App">
-      <NavBar />
+      <NavBar setUser={setUser}/>
       <Routes>
 
         <Route path="/"></Route>
@@ -51,18 +30,19 @@ function App() {
         <Route path="tm" ></Route>
         <Route path="assessment"></Route>
         <Route
-          path="create-assessment"
+          path="assessments/create-assessment"
           element={<CreateAssessment user={user} setUser={setUser} />}
         ></Route>
         <Route path="/assessments/:assessmentid/create-question" element={<CreateQuestion />}></Route>
         <Route path="blog"></Route>
         <Route path="contacts"></Route>
+
         <Route path="signup" element={<SignUp />}></Route>
         <Route path="login" element={<Login setUser={setUser} user={user} />}></Route>
         <Route path="dashboard" element={<Dashboard />}></Route>
         <Route path="home" element={<HomePage />}></Route>
         <Route path="topics" element={<TopicsHome />}></Route>
-        <Route path="takeassessment" element={<TakeAssessment />}></Route>
+        {/* <Route path="takeassessment" element={<TakeAssessment />}></Route> */}
 
       </Routes>
       <Footer/>
