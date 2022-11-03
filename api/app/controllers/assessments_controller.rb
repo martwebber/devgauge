@@ -23,6 +23,11 @@ class AssessmentsController < ApplicationController
     render json: assessment
   end
 
+  def latest
+    assessment = Assessment.last
+    render json: assessment
+  end
+
   #update assessment
 
   #    def update
