@@ -23,10 +23,14 @@ function TakeAssessment({ user }) {
     questions: [
       {
         quiz: "",
+        correct_answer: "",
         answers: [],
       },
     ],
   });
+  const [selectAnswer, setSelectAnswer] = useState(0);
+  const [postAnswer, setPostAnswer] = useState("");
+ 
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   useEffect(() => {
     fetch(`/assessments/${params.id}`, {
@@ -86,11 +90,24 @@ function TakeAssessment({ user }) {
                     >
                       {answer.answer_content}
                     </label>
+                    {/* setPostAnswer({answer.answer_content}) */}
+                   
                   </div>
                   
                 );
                 
               })}
+      
+              <StudentPostAnswer
+                selectAnswer={selectAnswer}
+                setSelectAnswer={setSelectAnswer}
+                assessmentid={params.id}
+                questionid={item.id}
+                correctAnswer={item.correct_answer}
+                setPostAnswer={setPostAnswer}
+
+               
+              />
             </div>
           );
         })}

@@ -1,41 +1,55 @@
 import React, { useState } from 'react';
 
-function StudentPostAnswer({assessmentid, answerid, questionid, selectAnswer, setSelectAnswer}){
+function StudentPostAnswer({assessmentid, correctAnswer, questionid, selectAnswer, setSelectAnswer}){
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     const userID= userInfo.user.id
+    // const [isTrue, setIsTrue] = useState(correctAnswer)
+    console.log(correctAnswer)
     
-
-    const[postAnswer, setPostAnswer]= useState({
-        assessment_id: assessmentid,
-        question_id: questionid,
-        answer_id: selectAnswer,
-        user_id: userID,
-        scores: 0
-
-    })
     
  function handleSubmit(e){
-    console.log(postAnswer)
+    console.log(questionid)
+    // console.log(postAnswer)
     e.preventDefault();
     fetch("/student_answers",{
         method: "POST",
         headers: {
-            "Content-Type": "application",
+            "Content-Type": "application/json",
             Authorization: "Bearer " + userInfo.jwt,
         },
-        body: JSON.stringify(postAnswer)
+        body: JSON.stringify({
+            assessment_id: assessmentid,
+            question_id: questionid,
+            answer_id: selectAnswer,
+            user_id: userID,
+            scores: 0
+        })
 
     })
     .then((res) => res.json())
     .then((data) => {
         console.log(data)
+        // setPostAnswer(data)
+        if(selectAnswer.toLowerCase() === correctAnswer.toLowerCase()){
+            alert("Correct Answer")
+        }
+        else{
+            alert("Invalid Answer")
+        }
 
     })
 
+    
+
  }
+
+ 
+
+
         
     return(
-        <div>
+        <div> 
+            
           <button onClick={handleSubmit} type="submit">Save</button>
         </div>
     )
