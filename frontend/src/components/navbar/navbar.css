@@ -43,13 +43,11 @@
 }
 
 .container .main{
-    font-size: 30px;
     color: #F15524;
     background-color: #111827;
 }
 
 .container .main:hover{
-    font-size: 20px;
     color: #F15524;
     background-color: #F3F7FA;
 }

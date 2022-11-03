@@ -12,6 +12,7 @@ import { SignUp } from "./pages/signup/signupform";
 import { HomePage } from "./pages/home/home";
 import { TopicsHome } from "./pages/topics/index";
 import Footer from "./components/footer/footer";
+import { CreateAnswerForm } from "./components/answermodal/CreateAnswerForm";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -34,6 +35,8 @@ function App() {
           element={<CreateAssessment user={user} setUser={setUser} />}
         ></Route>
         <Route path="/assessments/:assessmentid/create-question" element={<CreateQuestion />}></Route>
+        <Route path="/assessments/:assessmentid/questions/:id" element={<CreateAnswerForm />}></Route>
+
         <Route path="blog"></Route>
         <Route path="contacts"></Route>
 
