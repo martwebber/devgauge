@@ -1,12 +1,12 @@
 /* assessment form */
 .main {
-  background-color: rgb(2, 2, 56);
+  background-color: #111827;
   padding: 30px;
   text-align: center;
 }
 
 .inputField {
-  width: 10%;
+  width: 20%;
   height: 40px;
   border-radius: 20px;
   /* box-shadow: inset 0px 0px 25px 0px white; */
@@ -69,10 +69,10 @@ button {
 .type{
 margin-left: 30px
 }
-.duration{
+/* .duration{
 
 
-}
+} */
 .assessmentbody{
   background-color: rgba(255, 165, 0 );
   height: 40px;
