@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 
 function StudentPostAnswer({assessmentid, correctAnswer, questionid, selectAnswer, setSelectAnswer}){
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -47,7 +47,6 @@ function StudentPostAnswer({assessmentid, correctAnswer, questionid, selectAnswe
 
 
         
-
     return(
         <div> 
             

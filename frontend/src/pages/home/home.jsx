@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import hero from "../images/hero.jpg";
 import './home.css';
+import { Link } from "react-router-dom";
 // import "../signup/signupform";
 
 //import { SignUp } from './pages/signup/signupform';
@@ -30,13 +31,12 @@ export const HomePage = () => {
         <Col sm className="tm">
             <h3>For Team Manager</h3>
             <p>We are the market-leading technical interview platform to identify and hire developers wherever they are.</p>
-            <Button className="hiring" href="../signup">Start Hiring</Button>
-
+            <Link to={'/signup'}><Button className="hire">Start Hiring</Button></Link>
         </Col>
         <Col sm className="student">
             <h3>For Team Students</h3>
             <p>Join over 18 million developers, practice coding skills, prepare for Interviews and get hired.</p>
-            <Button className="hire" href="../signup">Get Hired</Button>
+            <Link to={'/signup'}><Button className="hire">Get Hired</Button></Link>
 
         </Col>
         

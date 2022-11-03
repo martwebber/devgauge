@@ -63,15 +63,15 @@ console.log('question data',postData)
       console.log(r)
         r.json().then(data=>
           {
-            //setPoastData([...postData, data])
-            //navigate(`/assessments/${params.assessmentid}`);
-            // handleAnswers(data)     
+            navigate(`/assessments/${params.assessmentid}`);
           })
     } else {
       r.json().then((err) => setErrors(err.errors));
     }
   });
   formReset.current.reset()
+  window.location.reload(false)
+
 }
 
 const topicsList = topics?.map((topic)=>(

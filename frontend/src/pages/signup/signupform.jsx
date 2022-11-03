@@ -29,13 +29,16 @@ const handleSubmit = (e) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         localStorage.setItem("userInfo", JSON.stringify(data));
-        navigate("/");
+        //navigate("/");
+        if(data.user.user_type==="TM"){
+          navigate("/dashboard")
+        }else if(data.user.user_type==="student"){
+          navigate(`/students/${data.user.id}`)
+        }                                                                                                                                                  
       });
   };
 
-  console.log(inputdata);
   return (
     <div className="body">
       {/* <div>
@@ -130,10 +133,7 @@ const handleSubmit = (e) => {
         <button type="submit" className="button-1" value="Create an account">Create an account</button>
           </div>
       <br/>
-      <p className="signup-login-link">Already have an account? <Link to={'/login'}>Log in here</Link></p>
-
-
-        
+      <p className="signup-login-link">Already have an account? <Link to={'/login'}>Log in here</Link></p>        
         </div>
       </form>
     </div>
