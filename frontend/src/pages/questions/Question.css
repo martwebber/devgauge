@@ -107,3 +107,17 @@ margin-left: 30px
 .hidden{
   display:none;
 }
+
+/* student assessment */
+.studentAssessment{
+  display: flex;
+  width: 100%;
+  /* align-items: center; */
+  padding: 50px;
+  
+  /* justify-content: center; */
+
+}
+.latestassessment{
+  padding-left: 50px
+}

@@ -13,7 +13,7 @@ function QuestionList() {
   
     }
   const params = useParams();
-  console.log('params',params);
+  // console.log('params',params);
   const [questionList, setQuestionList] = useState({
     title: "",
     description: "",
