@@ -111,13 +111,31 @@ margin-left: 30px
 /* student assessment */
 .studentAssessment{
   display: flex;
-  width: 100%;
+  /* width: 70%; */
   /* align-items: center; */
   padding: 50px;
-  
-  /* justify-content: center; */
+  background-color: silver;
+
 
 }
 .latestassessment{
   padding-left: 50px
+}
+.sideassessment{
+  padding-left: 50px;
+  padding-right: 50px
+}
+.displayquestion{
+ align-content: center;
+ /* justify-content: center; */
+ border-right-style: solid;
+ border-left-style: solid;
+ padding-left: 50px;
+ 
+}
+
+.titlequestion{
+text-align: center ; 
+padding-bottom: 10px;
+text-decoration: underline;
 }

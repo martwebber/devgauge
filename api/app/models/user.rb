@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   enum :user_type, { student: 0, TM: 1, admin: 2 }
+  has_many :student_answers
   validates_presence_of :first_name,
                         :last_name,
                         :username,
