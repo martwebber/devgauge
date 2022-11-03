@@ -24,11 +24,13 @@ function TakeAssessment() {
     questions: [
       {
         quiz: "",
+        correct_answer: "",
         answers: [],
       },
     ],
   });
   const [selectAnswer, setSelectAnswer] = useState(0);
+  const [postAnswer, setPostAnswer] = useState("");
   
   // const quizid = listQuestions.questions.map((quiz) => {
   //   return(
@@ -98,14 +100,22 @@ function TakeAssessment() {
                     >
                       {answer.answer_content}
                     </label>
+                    {/* setPostAnswer({answer.answer_content}) */}
+                   
                   </div>
                 );
               })}
+           
+      
               <StudentPostAnswer
                 selectAnswer={selectAnswer}
                 setSelectAnswer={setSelectAnswer}
                 assessmentid={params.id}
                 questionid={item.id}
+                correctAnswer={item.correct_answer}
+                setPostAnswer={setPostAnswer}
+
+               
               />
             </div>
           );
