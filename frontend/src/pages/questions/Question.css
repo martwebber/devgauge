@@ -1,12 +1,12 @@
 /* assessment form */
 .main {
-  background-color: rgb(2, 2, 56);
+  background-color: #111827;
   padding: 30px;
   text-align: center;
 }
 
 .inputField {
-  width: 10%;
+  width: 20%;
   height: 40px;
   border-radius: 20px;
   /* box-shadow: inset 0px 0px 25px 0px white; */
@@ -69,10 +69,10 @@ button {
 .type{
 margin-left: 30px
 }
-.duration{
+/* .duration{
 
 
-}
+} */
 .assessmentbody{
   background-color: rgba(255, 165, 0 );
   height: 40px;
@@ -111,13 +111,31 @@ margin-left: 30px
 /* student assessment */
 .studentAssessment{
   display: flex;
-  width: 100%;
+  /* width: 70%; */
   /* align-items: center; */
   padding: 50px;
-  
-  /* justify-content: center; */
+  background-color: silver;
+
 
 }
 .latestassessment{
   padding-left: 50px
+}
+.sideassessment{
+  padding-left: 50px;
+  padding-right: 50px
+}
+.displayquestion{
+ align-content: center;
+ /* justify-content: center; */
+ border-right-style: solid;
+ border-left-style: solid;
+ padding-left: 50px;
+ 
+}
+
+.titlequestion{
+text-align: center ; 
+padding-bottom: 10px;
+text-decoration: underline;
 }

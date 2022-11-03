@@ -1,25 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import "../questions/Question.css";
-import useForm from "../../hooks/useForm"
-import StudentPostAnswer from "./StudentPostAnswer";
+import {useForm} from "../../hooks/useForm"
 
-function TakeAssessment() {
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  const userID= userInfo.user.id
-const [questioninfo, handleChange] = useForm()
-  console.log(questioninfo)
+function TakeAssessment({ user }) {
+
+  
 
   const history = useNavigate();
 
-    function handleClick (path){
-      history(path)
-  
-    }
+  function handleClick(path) {
+    history(path);
+  }
   const params = useParams();
-  console.log(params);
-
+  // console.log(params);
   const [listQuestions, setListQuestions] = useState({
     title: "",
     description: "",
@@ -32,7 +27,7 @@ const [questioninfo, handleChange] = useForm()
       },
     ],
   });
-
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   useEffect(() => {
     fetch(`/assessments/${params.id}`, {
       headers: {
@@ -45,32 +40,45 @@ const [questioninfo, handleChange] = useForm()
       });
   }, []);
 
+  // function handleChange(e){
+  //   // console.log(e.target.value)
+  //  setSelectAnswer(e.target.value)
+  // }
+
   return (
     <div className="listQuestions">
       {/* <h1>Take Assessment</h1> */}
       <h1 className="assessmenttitle">{listQuestions.title}</h1>
       <div className="items">
-        <p className="duration"><b>Duration: </b>{listQuestions.duration}</p>
-        <p className="type"><b>Assessment-Type: </b>{listQuestions.assessment_type}</p>
-        </div>
-        <p className="assessmentbody">{listQuestions.description}</p>
-        
-        <ol>
+        <p className="duration">
+          <b>Duration: </b>
+          {listQuestions.duration}
+        </p>
+        <p className="type">
+          <b>Assessment-Type: </b>
+          {listQuestions.assessment_type}
+        </p>
+      </div>
+      <p className="assessmentbody">{listQuestions.description}</p>
+
+      <ol>
         {listQuestions.questions.map((item) => {
+         
           return (
             <div>
-              <li className= "assessmentquiz">{item.quiz}</li>
+               {/* {console.log(item.id)} */}
+              <li className="assessmentquiz">{item.quiz}</li>
               <i>Select one answer </i>
+              
               {item.answers.map((answer) => {
                 return (
                   <div className="form-check">
                     <input
                       className="form-check-input"
                       type="radio"
-                      name="answer_id"
+                      name="flexRadioDefault"
                       id="flexRadioDefault1"
-                       value={answer.id}
-                      onChange={handleChange}
+                      value={answer.id}
                     />
                     <label
                       className="form-check-label"
@@ -83,15 +91,17 @@ const [questioninfo, handleChange] = useForm()
                 );
                 
               })}
-              {console.log('info',questioninfo)}
-              <StudentPostAnswer assessmentid={item.assessment_id} questionid={item.id} answerid={questioninfo.answer_id}/>
             </div>
           );
         })}
-        </ol>
-  
-        <button onClick={() => handleClick("/students")} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Back</button>
-     
+      </ol>
+
+      <button
+        onClick={() => handleClick("/students")}
+        style={{ backgroundColor: "blue", borderRadius: 15 + "px" }}
+      >
+        Back
+      </button>
     </div>
   );
 }

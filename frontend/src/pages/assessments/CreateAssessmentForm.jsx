@@ -78,6 +78,10 @@ function CreateAssessmentForm({user, setUser}) {
     <div className="main">
       <form className="row g-3" onSubmit={handleSubmit}>
         <div className="col-12">
+          <div style={{color:"white" } }>
+            <h5 >Assessment Tittle: </h5>
+          </div>
+          
           <input
             type="text"
             className="form-control"
@@ -89,6 +93,9 @@ function CreateAssessmentForm({user, setUser}) {
           />
         </div>
         <div className="col-12">
+        <div style={{color:"white" } }>
+            <h5 >Assessment Description: </h5>
+          </div>
           <input
             type="text"
             className="form-control"
@@ -100,6 +107,9 @@ function CreateAssessmentForm({user, setUser}) {
           />
         </div>
         <div className="col-md-6">
+        <div style={{color:"white" } }>
+            <h6 >Assessment Type: </h6>
+          </div>
         {/* <div>
           <select className="form-select">
             <option >Select Assessment Type</option>
@@ -110,7 +120,7 @@ function CreateAssessmentForm({user, setUser}) {
           <input
             type="text"
             className="form-control"
-            placeholder="assessment_type"
+            placeholder="Actual or Trial"
             style={{ borderColor: "orange" }}
             onChange={(e) => setAssessmentType(e.target.value)}
             value={assessmentType}
@@ -118,6 +128,9 @@ function CreateAssessmentForm({user, setUser}) {
           />
         </div>
         <div className="col-md-6">
+        <div style={{color:"white" } }>
+            <h6 >Timer: </h6>
+          </div>
           <input
             type="text"
             className="form-control"

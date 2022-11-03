@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :topics, except: [:show]
   post '/login', to: 'authentication#login'
   get '/me', to: 'users#show'
+  get "/latest", to: "assessments#latest"
 end
