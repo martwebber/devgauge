@@ -3,6 +3,7 @@ import "./Question.css";
 import { useParams } from "react-router-dom";
 import {useNavigate} from "react-router-dom"
 import CreateNewQuestionForm from "./CreateNewQuestionForm";
+import { CreateAnswerForm } from "../../components/answermodal/CreateAnswerForm";
 
 function QuestionList() {
 
@@ -13,8 +14,8 @@ function QuestionList() {
   
     }
   const params = useParams();
-  console.log('params',params);
   const [questionList, setQuestionList] = useState({
+    assessmentid:"",
     title: "",
     description: "",
     duration: "",
@@ -36,22 +37,18 @@ function QuestionList() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setQuestionList(data);
       });
   }, []);
 
+  const [hide, setHide] = useState(true)
 
-  const [hide, setHide] = React.useState(true)
-
-  const toggleElements = () =>{
+  const toggleQuestionForm = () =>{
     setHide((hide)=>!hide)
-    console.log(hide,hideClass)
 
   }
 
   const hideClass = hide? 'hidden' :'';
-
 
   return (
     <div className="listQuestions">
@@ -65,17 +62,34 @@ function QuestionList() {
       <p className="assessmentbody">{questionList.description}</p>
       
       <ol>
-      {questionList.questions.map((item) => {
+      {questionList.questions.map((question) => {
         return (
-          <div>
-            <li className= "assessmentquiz">{item.quiz}</li>
-            <p className= "assessmentCorrectAnswer"> <b>Correct Answer: </b><i>{item.correct_answer}</i></p>
+          <div key={question.id}>
+                      {console.log('quest',question.id)}
+
+            <li className= "assessmentquiz">{question.quiz}    
+            <button className="btn btn-sm" style={{backgroundColor: "orange", borderRadius: 15 + "px"}} >Update</button>
+
+            <button className="btn btn-sm" style={{backgroundColor: "red", borderRadius: 15 + "px"}} >Delete</button>
+
+        </li>
+            <p className= "assessmentCorrectAnswer"> <b>Correct Answer: </b><i>{question.correct_answer}</i></p>
             <p>Options: </p>
             <ul>
-              {item.answers.map((answer) => {
-                return <li className="assessmentAnswer">{answer.answer_content}</li>;
+              {question.answers.map((answer) => {
+                return <li key={answer.id} className="assessmentAnswer">{answer.answer_content}</li>;
               })}
-            </ul><br/>
+            </ul>
+            {/* <button onClick={() => handleClick(`/assessments/${params.assessmentid}/questions/${question.id}`)} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Add Answers</button> */}
+
+            <CreateAnswerForm
+              questionid={question.id}
+              quiz={question.quiz}
+              assessmentid={params.assessmentid}
+              
+            />
+
+            <br/><br/>
           </div>
         );
       })}
@@ -83,7 +97,7 @@ function QuestionList() {
       <div> 
         <button onClick={() => handleClick("/assessments")} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Back</button>
 
-        <button onClick={toggleElements} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Add Question</button>
+        <button onClick={toggleQuestionForm} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Add Question</button>
       </div>
 
 <div className={hideClass}>
