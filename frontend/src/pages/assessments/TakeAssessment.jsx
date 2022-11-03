@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {useNavigate} from "react-router-dom"
 import "../questions/Question.css";
-import {useForm} from "../../hooks/useForm"
+import useForm from "../../hooks/useForm"
+import StudentPostAnswer from "./StudentPostAnswer";
 
-function TakeAssessment({ user }) {
-
-  
+function TakeAssessment() {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const userID= userInfo.user.id
+const [questioninfo, handleChange] = useForm()
+  console.log(questioninfo)
 
   const history = useNavigate();
 
@@ -29,7 +32,7 @@ function TakeAssessment({ user }) {
       },
     ],
   });
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
   useEffect(() => {
     fetch(`/assessments/${params.id}`, {
       headers: {
@@ -38,7 +41,6 @@ function TakeAssessment({ user }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data)
         setListQuestions(data);
       });
   }, []);
@@ -59,16 +61,16 @@ function TakeAssessment({ user }) {
             <div>
               <li className= "assessmentquiz">{item.quiz}</li>
               <i>Select one answer </i>
-              
               {item.answers.map((answer) => {
                 return (
                   <div className="form-check">
                     <input
                       className="form-check-input"
                       type="radio"
-                      name="flexRadioDefault"
+                      name="answer_id"
                       id="flexRadioDefault1"
-                      value={answer.id}
+                       value={answer.id}
+                      onChange={handleChange}
                     />
                     <label
                       className="form-check-label"
@@ -77,8 +79,12 @@ function TakeAssessment({ user }) {
                       {answer.answer_content}
                     </label>
                   </div>
+                  
                 );
+                
               })}
+              {console.log('info',questioninfo)}
+              <StudentPostAnswer assessmentid={item.assessment_id} questionid={item.id} answerid={questioninfo.answer_id}/>
             </div>
           );
         })}

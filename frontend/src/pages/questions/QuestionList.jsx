@@ -50,6 +50,14 @@ function QuestionList() {
 
   const hideClass = hide? 'hidden' :'';
 
+  const handleDeleteQuestion = (e) =>{
+    console.log('hu')
+  }
+
+  const handleUpdateQuestion = (e) =>{
+    console.log(e)
+  }
+
   return (
     <div className="listQuestions">
       <h1 className="assessmenttitle">{questionList.title}</h1>
@@ -68,16 +76,16 @@ function QuestionList() {
                       {console.log('quest',question.id)}
 
             <li className= "assessmentquiz">{question.quiz}    
-            <button className="btn btn-sm" style={{backgroundColor: "orange", borderRadius: 15 + "px"}} >Update</button>
+            {/* <button type="submit" onclick={()=>console.log('hi')} className="btn btn-sm" style={{backgroundColor: "orange", borderRadius: 15 + "px"}} >Update</button>
 
-            <button className="btn btn-sm" style={{backgroundColor: "red", borderRadius: 15 + "px"}} >Delete</button>
+            <button type="submit" className="btn btn-sm" onclick={handleDeleteQuestion} style={{backgroundColor: "red", borderRadius: 15 + "px"}} >Delete</button> */}
 
         </li>
             <p className= "assessmentCorrectAnswer"> <b>Correct Answer: </b><i>{question.correct_answer}</i></p>
             <p>Options: </p>
             <ul>
               {question.answers.map((answer) => {
-                return <li key={answer.id} className="assessmentAnswer">{answer.answer_content}</li>;
+                return <li key={answer.id} className="assessmentAnswer">{answer.answer_content} </li>;
               })}
             </ul>
             {/* <button onClick={() => handleClick(`/assessments/${params.assessmentid}/questions/${question.id}`)} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Add Answers</button> */}
