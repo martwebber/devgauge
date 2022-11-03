@@ -24,9 +24,10 @@ function Profile() {
       });
   }, []);
   return (
-    <div className="profile">
+    <div className="profile" style={{paddingTop: "40px", fontStyle: "italic" , paddingRight: "20px"}}>
+      <h4>Profile</h4>
       <div>
-        <img src={profile} alt="Avatar" class="avatar" />
+        <img src={profile} alt="Avatar" class="avatar" style={{ width: 10 + "rem" }} />
       </div>
       <div>
         <p>
