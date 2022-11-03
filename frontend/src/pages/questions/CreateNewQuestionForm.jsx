@@ -6,12 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useRef } from "react";
 import {useNavigate, useParams} from "react-router-dom"
 import { useEffect } from "react";
-// import {QuestionsList} from "./questions"
 
 const userInfo = JSON.parse(localStorage.getItem("userInfo") );
-  // console.log(userInfo.user.username)
-  // const userID= userInfo.user.id
-
 
 function CreateNewQuestionForm({questions, setQuestions}) {
   const [topics, setTopics] =  useState([])
@@ -41,7 +37,6 @@ useEffect(() => {
 
 },[])
 
-
 const [errors, setErrors] = useState([]);
 
 const navigate = useNavigate()
@@ -68,8 +63,9 @@ console.log('question data',postData)
       console.log(r)
         r.json().then(data=>
           {
-            setPoastData(data)
-            navigate(`/assessments/${params.assessmentid}`);     
+            //setPoastData([...postData, data])
+            //navigate(`/assessments/${params.assessmentid}`);
+            // handleAnswers(data)     
           })
     } else {
       r.json().then((err) => setErrors(err.errors));
@@ -77,8 +73,6 @@ console.log('question data',postData)
   });
   formReset.current.reset()
 }
-
-
 
 const topicsList = topics?.map((topic)=>(
   <option key={topic.id} value={topic.id}>{topic.topic_content}</option>
@@ -134,23 +128,9 @@ const topicsList = topics?.map((topic)=>(
             style={{ backgroundColor: "orange" }}
           />
         </div>
-
-       
         <br />
         <br />
         <div>
-          {/* <input
-            className="inputField"
-            type="submit"
-            value="Previous"
-            style={{ backgroundColor: "blue" }}
-          /> */}
-          {/* <input
-            className="inputField"
-            type="submit"
-            value="Next"
-            style={{ backgroundColor: "orange" }}
-          /> */}
         </div>
       </form>
     </div>

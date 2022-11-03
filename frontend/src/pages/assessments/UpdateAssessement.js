@@ -30,7 +30,6 @@ function UpdateAssessement({
   let navigate = useNavigate();
 
   function handleSubmit(e) {
-    // console.log(e);
     e.preventDefault();
 
     fetch(`/assessments/${assessmentid}`, {
@@ -48,46 +47,17 @@ function UpdateAssessement({
       }),
     })
       .then((response) => response.json())
-      // .then((data) => {
-      //   console.log(data);
-      //   console.log(commentBody);
-      // });
 
       .then((data) => {
-        console.log(data);
+        handleClose()
         navigate("/assessments")
-
-        // onHandleUpdate(data)
       });
 
   }
 
-  // function handleUpdate(updatedTitle) {
-  //   const updateTitle = assessment.map((item) =>
-  //     item.id === updatedTitle.id ? updatedTitle : item
-      
-  //   );
-  //   // console.log(updateTitle)
-  //   setTitleBody(updateTitle);
-  // }
   return (
     <div>
       <div className="editassessment">
-      {/* { isHidden ? <Edit 
-      titleBody={titleBody}
-      setTitleBody={setTitleBody}
-      setIsHidden={setIsHidden}
-       assessmentid={assessmentid}
-       assessment={assessment}
-       setAssessment={setAssessment}
-       durationBody={durationBody}
-       setDurationBody={setDurationBody}
-       assessmentBody={assessmentBody}
-       setAssessmentBody={setAssessmentBody}
-       descriptionBody={descriptionBody}
-       setDescriptionBody={setDescriptionBody}
-      /> : null} */}
-
 <Modal
         show={show}
         onHide={handleClose}
@@ -98,7 +68,7 @@ function UpdateAssessement({
           <Modal.Title>Update {titleBody} assessment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-      <form  className="row g-3" onSubmit={handleSubmit}>
+      <form  className="row g-3">
         <div className="col-12">
           <input
             type="text"
@@ -147,11 +117,17 @@ function UpdateAssessement({
         </div>
         <br />
         <div>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary close" data-dismiss="modal" aria-label="Close">Close</button>
-        </div>
+    </div>
       </form>
         </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleSubmit}>
+            Update assessment
+          </Button>
+        </Modal.Footer>
       </Modal>
 
       </div>
