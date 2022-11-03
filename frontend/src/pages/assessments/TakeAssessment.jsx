@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../questions/Question.css";
-import { useForm } from "../../hooks/useForm";
+import useForm from "../../hooks/useForm"
 import StudentPostAnswer from "./StudentPostAnswer";
 
 function TakeAssessment() {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  const userID = userInfo.user.id;
+const [questioninfo, handleChange] = useForm()
+  console.log(questioninfo)
 
   const history = useNavigate();
 
@@ -29,14 +30,7 @@ function TakeAssessment() {
     ],
   });
   const [selectAnswer, setSelectAnswer] = useState(0);
-  
-  // const quizid = listQuestions.questions.map((quiz) => {
-  //   return(
-  //     quiz.id
-  //   )
-  // }
-  //    )
-
+ 
 
   useEffect(() => {
     fetch(`/assessments/${params.id}`, {
@@ -46,7 +40,6 @@ function TakeAssessment() {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data)
         setListQuestions(data);
       });
   }, []);
@@ -89,7 +82,7 @@ function TakeAssessment() {
                       type="radio"
                       name="answer_id"
                       id="flexRadioDefault1"
-                      value={answer.id}
+                       value={answer.id}
                       onChange={handleChange}
                     />
                     <label
@@ -99,14 +92,18 @@ function TakeAssessment() {
                       {answer.answer_content}
                     </label>
                   </div>
+                  
                 );
+                
               })}
+
               <StudentPostAnswer
                 selectAnswer={selectAnswer}
                 setSelectAnswer={setSelectAnswer}
                 assessmentid={params.id}
                 questionid={item.id}
               />
+
             </div>
           );
         })}

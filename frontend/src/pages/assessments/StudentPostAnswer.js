@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 function StudentPostAnswer({assessmentid, answerid, questionid, selectAnswer, setSelectAnswer}){
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -34,7 +34,6 @@ function StudentPostAnswer({assessmentid, answerid, questionid, selectAnswer, se
 
  }
         
-
     return(
         <div>
           <button onClick={handleSubmit} type="submit">Save</button>
