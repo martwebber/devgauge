@@ -62,7 +62,7 @@ function TakeAssessment({ user }) {
       <p className="assessmentbody">{listQuestions.description}</p>
 
       <ol>
-        {listQuestions.questions.map((item) => {
+        {listQuestions.questions?.map((item) => {
          
           return (
             <div>

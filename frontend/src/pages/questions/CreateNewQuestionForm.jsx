@@ -70,6 +70,8 @@ console.log('question data',postData)
     }
   });
   formReset.current.reset()
+  window.location.reload(false)
+
 }
 
 const topicsList = topics?.map((topic)=>(

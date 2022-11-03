@@ -27,7 +27,11 @@ export const Login = ({ setUser, user }) => {
       if (res.ok) {
         res.json().then((res) => {
           localStorage.setItem("userInfo", JSON.stringify(res));
-          navigate("/dashboard");
+          if(res.user.user_type==="TM"){
+            navigate("/dashboard")
+          }else if(res.user.user_type==="student"){
+            navigate(`/students/${res.user.id}`)
+          }    
         });
       } else {
         res.json().catch((err) => {
