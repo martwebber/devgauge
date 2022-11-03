@@ -44,18 +44,6 @@ function TakeAssessment({ user }) {
   }, []);
 
   return (
-<<<<<<< HEAD
-    <div>
-      <div>
-      take assessment
-      </div>
-      <div>
-     Take assessment
-      
-      </div>
-      
-      
-=======
     <div className="listQuestions">
       {/* <h1>Take Assessment</h1> */}
       <h1 className="assessmenttitle">{listQuestions.title}</h1>
@@ -98,7 +86,6 @@ function TakeAssessment({ user }) {
   
         <button onClick={() => handleClick("/students")} style={{backgroundColor: "blue", borderRadius: 15 + "px"}} >Back</button>
      
->>>>>>> 2a9dc92a8ff1264ee379bb2f8f27bfef96a30815
     </div>
   );
 }
