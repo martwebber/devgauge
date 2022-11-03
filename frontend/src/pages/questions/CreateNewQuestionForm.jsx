@@ -13,7 +13,7 @@ function CreateNewQuestionForm({questions, setQuestions}) {
   const [topics, setTopics] =  useState([])
 
 const params = useParams();
-console.log(params);
+// console.log(params);
 
   const [postData, setPoastData] = useState({
     quiz: "",
