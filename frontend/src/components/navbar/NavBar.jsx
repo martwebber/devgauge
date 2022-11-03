@@ -14,6 +14,8 @@ export const NavBar = ({setUser}) => {
     localStorage.removeItem("userInfo")
     navigate("/home")
   }
+
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     return (
     <Navbar className='navbar'expand="lg">
     <Container fluid className='container'>
@@ -26,15 +28,34 @@ export const NavBar = ({setUser}) => {
             navbarScroll
           >
         <Nav.Link as={Link} to="/home">Home</Nav.Link>
-        <Nav.Link as={Link} to="/assessments">Assessments</Nav.Link>
-        <Nav.Link as={Link} to="/tm">TM DashBoard</Nav.Link>
-        <Nav.Link as={Link} to="/student">Student</Nav.Link>
+
+        {
+          userInfo ?(
+            
+            <>
+        {/* <Nav.Link as={Link} to="/tm">TM DashBoard</Nav.Link> */}
+        {/* <Nav.Link as={Link} to="/student">Student</Nav.Link> */}
         <Nav.Link as={Link} to="/students">Students</Nav.Link>
-        <Nav.Link as={Link} to="assessments/create-assessment">Create Assessment</Nav.Link>
-        <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
-        <Nav.Link as={Link} to="/login"className='login-btn' >Login  </Nav.Link> 
-        
-        <button onClick={handleLogoutClick} type="submit" className="btn btn-primary">Logout</button>
+        {userInfo.user.user_type === "TM"?(
+          <>
+                    <Nav.Link as={Link} to="/assessments">Assessments</Nav.Link>
+
+                  <Nav.Link as={Link} to="assessments/create-assessment">Create Assessment</Nav.Link>
+          </>
+        ):(
+          ''
+        )}
+            </>
+            ) : (
+        <>
+        <Nav.Link as={Link} to="/contactus">Contact Us</Nav.Link>
+        <Nav.Link as={Link} to="/blog">Blog</Nav.Link> 
+        <Nav.Link as={Link} to="/about">About Us</Nav.Link> 
+        <Nav.Link as={Link} to="/faqs">FAQs</Nav.Link> 
+
+        </>
+          )
+            }
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -45,6 +66,18 @@ export const NavBar = ({setUser}) => {
             />
             <Button className='search-btn' >Search</Button>
           </Form>
+
+        {
+          userInfo ?(
+            
+            <button onClick={handleLogoutClick} type="submit" className="btn btn-primary">Logout</button>
+          ) : (
+        <>
+        <Nav.Link className="nav-buttons" as={Link} to="/signup"><Button className="nav-buttons login-btn">Signup</Button></Nav.Link>
+        <Nav.Link as={Link} to="/login"><Button className="nav-buttons login-btn">Login</Button></Nav.Link> 
+        </>
+          )
+        }
         </Navbar.Collapse>
     </Container>
   </Navbar>

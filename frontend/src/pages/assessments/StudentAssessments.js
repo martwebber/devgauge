@@ -30,7 +30,7 @@ function StudentAssessment() {
           <h3 className="titlequestion">Available Assessment</h3>
         </div>
         <div>
-          {listQuestions.map((question) => {
+          {listQuestions.map((assessment) => {
             return (
               <div className="displayquestion">
                 <div style={{ display: "flex" }}>
@@ -47,26 +47,26 @@ function StudentAssessment() {
                   </div>
                   <div className="sideassessment">
                     <h4 style={{ textDecoration: "underline" }}>
-                      {question.title}
+                      {assessment.title}
                     </h4>
                     <p>
                       {" "}
                       <b>Description : </b>
-                      {question.description}
+                      {assessment.description}
                     </p>
                     <p>
                       {" "}
                       <b>Duration : </b>
-                      {question.duration} minutes
+                      {assessment.duration} minutes
                     </p>
                     <p>
                       {" "}
                       <b>Assessment_type: </b>
-                      {question.assessment_type}
+                      {assessment.assessment_type}
                     </p>
-                    <Link to={`/students/${question.id}`}>
+                    <Link to={`/students/${userInfo.user.id}/assessments/${assessment.id}`}>
                       Start Assessment
-                    </Link>{" "}
+                    </Link>
                     <hr />
                   </div>
                 </div>

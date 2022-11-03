@@ -52,7 +52,7 @@ function UpdateAssessement({
         handleClose()
         navigate("/assessments")
       });
-
+window.location.reload(false)
   }
 
   return (

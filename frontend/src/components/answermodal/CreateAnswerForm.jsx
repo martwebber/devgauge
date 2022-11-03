@@ -51,6 +51,7 @@ export const CreateAnswerForm = (props) => {
       }
     });
     formReset.current.reset()
+    window.location.reload(false)
   }
   
     return (

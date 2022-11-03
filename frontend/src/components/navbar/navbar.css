@@ -17,7 +17,7 @@
 
 }
 .container .nav-link {
-    font-size:12px;
+    font-size:15px;
     color: #ffff;
     background-color: #111827;
     /* margin-left: 10px; */
@@ -26,9 +26,9 @@
     
 }
 .container .nav-link:hover {
-    font-size:smaller !important;
+    /* font-size:smaller !important; */
     color: #F15524 !important;
-    background-color: #F3F7FA !important;
+    /* background-color: #F3F7FA !important; */
 }
 
 .container .d-flex{
@@ -71,7 +71,13 @@
 
 .d-flex .me-2{
     height: 100% !important;
-    width: 90px;
-    margin-left: 80%;
+    width: 200px;
+    /* margin-left: 80%; */
     /* margin-right: 40px; */
+}
+
+.nav-buttons{
+    float:right;
+    margin-left:10px;
+    margin-right:10px;
 }

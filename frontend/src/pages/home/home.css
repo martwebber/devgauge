@@ -53,11 +53,13 @@
 }
 
 .hire {
-    background-color: #FF9F1B;
+    /* background-color: #FF9F1B; */
+    background-color: #025397;
+
 }
 
 .hiring {
-    background-color: #025397;
+    background-color:#FF9F1B;
 }
 /* 
 .h-main{
